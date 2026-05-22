@@ -36,17 +36,20 @@ export default function About() {
     {
       name: 'Alexandra Sterling',
       role: 'Founder & CEO',
-      image: '/images/gala-dinner.jpg',
+      image: '/images/4.jpeg',
+      bio: 'Visionary leader with 20+ years of experience in luxury event production across five continents.',
     },
     {
       name: 'Marcus Chen',
       role: 'Creative Director',
-      image: '/images/conference-summit.jpg',
+      image: '/images/5.jpeg',
+      bio: 'Award-winning creative strategist specializing in immersive brand experiences and cultural moments.',
     },
     {
       name: 'Isabella Romano',
       role: 'Head of Production',
-      image: '/images/brand-activation.jpg',
+      image: '/images/6.jpeg',
+      bio: 'Master logistician and detail-oriented producer managing large-scale international productions.',
     },
   ];
 
@@ -127,7 +130,7 @@ export default function About() {
             >
               <div className="image-zoom-container relative">
                 <img
-                  src="/images/gala-dinner.jpg"
+                  src="/images/4.jpeg"
                   alt="Elegant event setting"
                   className="w-full h-[600px] object-cover"
                 />
@@ -198,7 +201,7 @@ export default function About() {
             >
               <div className="image-zoom-container">
                 <img
-                  src="/images/outdoor-event.jpg"
+                  src="/images/5.jpeg"
                   alt="Event production"
                   className="w-full h-[500px] object-cover"
                 />
@@ -268,19 +271,24 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="reveal-on-scroll group"
               >
-                <div className="image-zoom-container relative overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/90 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <h3 className="font-serif text-2xl text-white mb-2">
+                <div className="space-y-6">
+                  <div className="image-zoom-container relative overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/90 via-transparent to-transparent" />
+                  </div>
+                  <div className="p-6 bg-white">
+                    <h3 className="font-serif text-2xl text-[#0a1628] mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-[#c9a962] text-sm tracking-widest uppercase">
+                    <p className="text-[#c9a962] text-sm tracking-widest uppercase mb-4">
                       {member.role}
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {member.bio}
                     </p>
                   </div>
                 </div>

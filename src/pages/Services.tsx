@@ -31,56 +31,72 @@ export default function Services() {
       title: 'Event Planning & Production',
       description:
         'End-to-end event management from concept to execution. We handle every detail with meticulous precision, ensuring seamless experiences that exceed expectations.',
+      longDescription:
+        'Our comprehensive event planning and production services encompass everything from initial concept development to final execution. We manage all logistics, coordinate with premium vendors, oversee technical requirements, and ensure flawless on-site delivery. Every element is crafted to create cohesive, memorable experiences.',
       features: [
         'Strategic Event Design',
         'Venue Sourcing & Management',
         'Production & Technical Direction',
         'Vendor Curation & Management',
         'On-Site Coordination',
+        'Event Technology Integration',
+        'Risk Management & Contingency Planning',
       ],
-      image: '/images/gala-dinner.jpg',
+      image: '/images/1.jpeg',
     },
     {
       icon: Building2,
       title: 'Corporate Events',
       description:
         'Transform corporate gatherings into memorable experiences. From executive retreats to company-wide celebrations, we create environments that inspire and engage.',
+      longDescription:
+        'We specialize in creating corporate experiences that strengthen relationships, celebrate achievements, and communicate brand values. From intimate executive retreats to large-scale conferences, we design events that foster connection and drive business objectives forward.',
       features: [
-        'Executive Summits',
-        'Annual Meetings',
-        'Product Launches',
-        'Award Ceremonies',
+        'Executive Summits & Retreats',
+        'Annual Meetings & Conferences',
+        'Product Launches & Reveals',
+        'Award Ceremonies & Galas',
         'Team Building Experiences',
+        'Incentive Travel Programs',
+        'Corporate Social Responsibility Events',
       ],
-      image: '/images/conference-summit.jpg',
+      image: '/images/2.jpeg',
     },
     {
       icon: Megaphone,
       title: 'Brand Activations',
       description:
         'Bring your brand to life through immersive experiences. We create interactive environments that forge emotional connections and drive meaningful engagement.',
+      longDescription:
+        'Transform brand narratives into tangible, interactive experiences that captivate audiences and create lasting impressions. Our activation strategies leverage innovative technology, creative design, and strategic storytelling to amplify brand presence and consumer engagement.',
       features: [
-        'Experiential Marketing',
-        'Pop-Up Experiences',
-        'Product Demonstrations',
-        'Influencer Events',
-        'Brand Storytelling',
+        'Experiential Marketing Campaigns',
+        'Pop-Up Experiences & Installations',
+        'Product Demonstrations & Launches',
+        'Influencer & Media Events',
+        'Brand Storytelling Experiences',
+        'Immersive Brand Installations',
+        'Consumer Engagement Activations',
       ],
-      image: '/images/brand-activation.jpg',
+      image: '/images/3.jpeg',
     },
     {
       icon: Users,
       title: 'Large-Scale Events',
       description:
         'Orchestrate complex productions with thousands of attendees. Our expertise in logistics and crowd management ensures flawless execution at any scale.',
+      longDescription:
+        'We possess the infrastructure, expertise, and network to execute large-scale events with thousands of attendees across multiple venues and time zones. Our team specializes in complex logistics, crowd management, real-time coordination, and delivering exceptional experiences at unprecedented scale.',
       features: [
-        'Conferences & Conventions',
-        'Music Festivals',
-        'Sporting Events',
-        'Public Celebrations',
+        'Conferences & Conventions (1000+)',
+        'Music Festivals & Concerts',
+        'Sporting Events & Competitions',
+        'Public Celebrations & Ceremonies',
         'Multi-Venue Productions',
+        'Live Streaming & Hybrid Events',
+        'Global Event Coordination',
       ],
-      image: '/images/outdoor-event.jpg',
+      image: '/images/4.jpeg',
     },
   ];
 

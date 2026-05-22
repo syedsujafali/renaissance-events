@@ -80,7 +80,7 @@ export default function Contact() {
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-[#0a1628]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: 'url(/images/gala-dinner.jpg)' }}
+          style={{ backgroundImage: 'url(/images/8.jpeg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/50 via-[#0a1628]/70 to-[#0a1628]" />
 
@@ -100,7 +100,7 @@ export default function Contact() {
           </h1>
           <p className="text-white/70 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
             Ready to bring your vision to life? We're here to help you 
-            create something extraordinary.
+            create something extraordinary. Reach out and let's discuss your next event.
           </p>
         </motion.div>
       </section>

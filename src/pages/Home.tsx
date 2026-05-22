@@ -34,17 +34,38 @@ export default function Home() {
     {
       title: 'Global Tech Summit 2025',
       category: 'Corporate Events',
-      image: '/images/conference-summit.jpg',
+      image: '/images/1.jpeg',
+      description: 'An extraordinary gathering of industry leaders and innovators from around the globe.'
     },
     {
       title: 'Luxury Brand Launch',
       category: 'Brand Activations',
-      image: '/images/brand-activation.jpg',
+      image: '/images/2.jpeg',
+      description: 'A spectacular brand experience that captivated audiences and exceeded expectations.'
     },
     {
       title: 'Annual Gala Dinner',
       category: 'Special Events',
-      image: '/images/gala-dinner.jpg',
+      image: '/images/3.jpeg',
+      description: 'An unforgettable evening of elegance, entertainment, and refined celebration.'
+    },
+  ];
+
+  const highlights = [
+    {
+      number: '500+',
+      label: 'Events Delivered',
+      description: 'Successfully executed projects that have left lasting impressions worldwide.'
+    },
+    {
+      number: '50+',
+      label: 'Countries',
+      description: 'Global reach with local expertise in every market we serve.'
+    },
+    {
+      number: '20+',
+      label: 'Years Experience',
+      description: 'Two decades of innovation in luxury event planning and production.'
     },
   ];
 
@@ -87,9 +108,12 @@ export default function Home() {
             <br />
             <span className="text-[#c9a962]">Extraordinary</span>
           </h1>
-          <p className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-8 leading-relaxed">
             Renaissance Events crafts immersive experiences that captivate, 
             inspire, and leave an indelible mark on the world's most discerning audiences.
+          </p>
+          <p className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
+            From intimate gatherings to grand-scale productions, we transform your vision into reality with unparalleled creativity, precision, and excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -240,6 +264,50 @@ export default function Home() {
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Highlights Section */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 lg:mb-24"
+          >
+            <div className="w-16 h-px bg-[#c9a962] mx-auto mb-8" />
+            <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] mb-6">
+              Why Brands Trust Renaissance
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              A commitment to excellence in every aspect of event creation and execution
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {highlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center space-y-4"
+              >
+                <div className="text-5xl lg:text-6xl font-serif text-[#c9a962] font-medium">
+                  {highlight.number}
+                </div>
+                <h3 className="font-serif text-2xl text-[#0a1628]">
+                  {highlight.label}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {highlight.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

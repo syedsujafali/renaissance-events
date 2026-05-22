@@ -40,7 +40,8 @@ export default function Portfolio() {
       category: 'corporate',
       location: 'San Francisco, CA',
       attendees: '2,500+',
-      image: '/images/conference-summit.jpg',
+      image: '/images/5.jpeg',
+      description: 'A groundbreaking technology conference bringing together industry pioneers and innovators.',
     },
     {
       id: 2,
@@ -48,7 +49,8 @@ export default function Portfolio() {
       category: 'brand',
       location: 'New York, NY',
       attendees: '800+',
-      image: '/images/brand-activation.jpg',
+      image: '/images/6.jpeg',
+      description: 'An exclusive brand reveal experience celebrating heritage and innovation.',
     },
     {
       id: 3,
@@ -56,7 +58,8 @@ export default function Portfolio() {
       category: 'gala',
       location: 'London, UK',
       attendees: '1,200+',
-      image: '/images/gala-dinner.jpg',
+      image: '/images/7.jpeg',
+      description: 'An elegant evening of philanthropy and celebration supporting meaningful causes.',
     },
     {
       id: 4,
@@ -64,7 +67,8 @@ export default function Portfolio() {
       category: 'production',
       location: 'Austin, TX',
       attendees: '15,000+',
-      image: '/images/stage-production.jpg',
+      image: '/images/8.jpeg',
+      description: 'A large-scale music festival spanning three days with multiple stages and experiences.',
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ export default function Portfolio() {
       category: 'corporate',
       location: 'Aspen, CO',
       attendees: '150',
-      image: '/images/outdoor-event.jpg',
+      image: '/images/9.jpeg',
+      description: 'An intimate executive gathering fostering strategic collaboration and renewal.',
     },
     {
       id: 6,
@@ -80,7 +85,8 @@ export default function Portfolio() {
       category: 'brand',
       location: 'Los Angeles, CA',
       attendees: '5,000+',
-      image: '/images/product-launch.jpg',
+      image: '/images/1.jpeg',
+      description: 'An immersive installation showcasing cutting-edge product features.',
     },
     {
       id: 7,
@@ -88,7 +94,8 @@ export default function Portfolio() {
       category: 'gala',
       location: 'Paris, France',
       attendees: '900+',
-      image: '/images/corporate-gala.jpg',
+      image: '/images/2.jpeg',
+      description: 'A prestigious ceremony celebrating industry excellence and achievement.',
     },
     {
       id: 8,
@@ -96,7 +103,8 @@ export default function Portfolio() {
       category: 'corporate',
       location: 'Chicago, IL',
       attendees: '600+',
-      image: '/images/networking-event.jpg',
+      image: '/images/3.jpeg',
+      description: 'An engaging summit facilitating meaningful professional connections.',
     },
   ];
 
