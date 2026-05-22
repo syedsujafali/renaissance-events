@@ -137,7 +137,7 @@ export default function Services() {
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-[#0a1628]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: 'url(/images/stage-production.jpg)' }}
+          style={{ backgroundImage: 'url(/images/5.jpeg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/50 via-[#0a1628]/70 to-[#0a1628]" />
 
@@ -275,7 +275,7 @@ export default function Services() {
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/conference-summit.jpg)' }}
+            style={{ backgroundImage: 'url(/images/9.jpeg)' }}
           />
         </div>
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
@@ -326,7 +326,7 @@ export default function Services() {
             >
               <div className="image-zoom-container">
                 <img
-                  src="/images/brand-activation.jpg"
+                  src="/images/6.jpeg"
                   alt="Brand activation event"
                   className="w-full h-[500px] object-cover"
                 />

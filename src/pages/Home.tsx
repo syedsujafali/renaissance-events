@@ -34,38 +34,17 @@ export default function Home() {
     {
       title: 'Global Tech Summit 2025',
       category: 'Corporate Events',
-      image: '/images/1.jpeg',
-      description: 'An extraordinary gathering of industry leaders and innovators from around the globe.'
+      image: '/images/5.jpeg',
     },
     {
       title: 'Luxury Brand Launch',
       category: 'Brand Activations',
-      image: '/images/2.jpeg',
-      description: 'A spectacular brand experience that captivated audiences and exceeded expectations.'
+      image: '/images/6.jpeg',
     },
     {
       title: 'Annual Gala Dinner',
       category: 'Special Events',
-      image: '/images/3.jpeg',
-      description: 'An unforgettable evening of elegance, entertainment, and refined celebration.'
-    },
-  ];
-
-  const highlights = [
-    {
-      number: '500+',
-      label: 'Events Delivered',
-      description: 'Successfully executed projects that have left lasting impressions worldwide.'
-    },
-    {
-      number: '50+',
-      label: 'Countries',
-      description: 'Global reach with local expertise in every market we serve.'
-    },
-    {
-      number: '20+',
-      label: 'Years Experience',
-      description: 'Two decades of innovation in luxury event planning and production.'
+      image: '/images/7.jpeg',
     },
   ];
 
@@ -83,7 +62,7 @@ export default function Home() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-main.jpg)' }}
+            style={{ backgroundImage: 'url(/images/1.jpeg)' }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/70 via-[#0a1628]/50 to-[#0a1628]" />
         </motion.div>
@@ -108,12 +87,9 @@ export default function Home() {
             <br />
             <span className="text-[#c9a962]">Extraordinary</span>
           </h1>
-          <p className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-12 leading-relaxed">
             Renaissance Events crafts immersive experiences that captivate, 
             inspire, and leave an indelible mark on the world's most discerning audiences.
-          </p>
-          <p className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
-            From intimate gatherings to grand-scale productions, we transform your vision into reality with unparalleled creativity, precision, and excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -187,12 +163,79 @@ export default function Home() {
             >
               <div className="image-zoom-container relative">
                 <img
-                  src="/images/stage-production.jpg"
+                  src="/images/2.jpeg"
                   alt="Professional stage production"
                   className="w-full h-[500px] lg:h-[600px] object-cover"
                 />
                 <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-[#c9a962]/10 -z-10" />
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Signature Highlights */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8 }}
+              className="reveal-on-scroll space-y-8"
+            >
+              <div className="w-16 h-px bg-[#c9a962]" />
+              <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">
+                Our Signature Approach
+              </p>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
+                Crafted for emotion,
+                <br />
+                delivered with precision.
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
+                Every experience is designed to connect your message with your audience, combining bold creativity, seamless logistics, and unforgettable detail.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  'Purpose-led concepts',
+                  'Immersive production',
+                  'Global expertise',
+                  'Meaningful outcomes',
+                ].map((item) => (
+                  <div key={item} className="rounded-sm border border-gray-200 p-6">
+                    <p className="text-sm text-[#c9a962] uppercase tracking-[0.35em] mb-3">{item}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {item === 'Purpose-led concepts'
+                        ? 'We start with a powerful idea that reflects your goals and your audience.'
+                        : item === 'Immersive production'
+                        ? 'Every detail is choreographed to create memorable, high-impact moments.'
+                        : item === 'Global expertise'
+                        ? 'Our team delivers exceptional events across continents and cultures.'
+                        : 'The result is an experience that feels personal, polished, and purposeful.'}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8 }}
+              className="reveal-on-scroll grid grid-cols-2 gap-4"
+            >
+              {['4.jpeg', '5.jpeg', '6.jpeg', '7.jpeg'].map((name, index) => (
+                <div key={name} className="overflow-hidden rounded-sm bg-gray-100">
+                  <img
+                    src={`/images/${name}`}
+                    alt={`Event highlight ${index + 1}`}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -267,56 +310,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Highlights Section */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 lg:mb-24"
-          >
-            <div className="w-16 h-px bg-[#c9a962] mx-auto mb-8" />
-            <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] mb-6">
-              Why Brands Trust Renaissance
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              A commitment to excellence in every aspect of event creation and execution
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center space-y-4"
-              >
-                <div className="text-5xl lg:text-6xl font-serif text-[#c9a962] font-medium">
-                  {highlight.number}
-                </div>
-                <h3 className="font-serif text-2xl text-[#0a1628]">
-                  {highlight.label}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {highlight.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-[#0a1628] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/outdoor-event.jpg)' }}
+            style={{ backgroundImage: 'url(/images/3.jpeg)' }}
           />
         </div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">

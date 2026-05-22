@@ -119,7 +119,7 @@ export default function Portfolio() {
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-[#0a1628]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: 'url(/images/hero-main.jpg)' }}
+          style={{ backgroundImage: 'url(/images/8.jpeg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/50 via-[#0a1628]/70 to-[#0a1628]" />
 
@@ -246,7 +246,7 @@ export default function Portfolio() {
           >
             <div className="image-zoom-container">
               <img
-                src="/images/conference-summit.jpg"
+                src="/images/9.jpeg"
                 alt="Featured project"
                 className="w-full h-[500px] lg:h-[600px] object-cover"
               />
@@ -296,7 +296,7 @@ export default function Portfolio() {
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/outdoor-event.jpg)' }}
+            style={{ backgroundImage: 'url(/images/5.jpeg)' }}
           />
         </div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">

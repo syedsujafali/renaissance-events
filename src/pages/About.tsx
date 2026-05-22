@@ -36,33 +36,29 @@ export default function About() {
     {
       name: 'Alexandra Sterling',
       role: 'Founder & CEO',
-      image: '/images/4.jpeg',
-      bio: 'Visionary leader with 20+ years of experience in luxury event production across five continents.',
+      image: '/images/1.jpeg',
     },
     {
       name: 'Marcus Chen',
       role: 'Creative Director',
-      image: '/images/5.jpeg',
-      bio: 'Award-winning creative strategist specializing in immersive brand experiences and cultural moments.',
+      image: '/images/2.jpeg',
     },
     {
       name: 'Isabella Romano',
       role: 'Head of Production',
-      image: '/images/6.jpeg',
-      bio: 'Master logistician and detail-oriented producer managing large-scale international productions.',
+      image: '/images/3.jpeg',
     },
   ];
 
   return (
     <main className="overflow-hidden">
-      {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-[#0a1628]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: 'url(/images/stage-production.jpg)' }}
+          style={{ backgroundImage: 'url(/images/5.jpeg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/50 via-[#0a1628]/70 to-[#0a1628]" />
-        
+
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,13 +74,11 @@ export default function About() {
             Through Experience
           </h1>
           <p className="text-white/70 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-            Two decades of transforming visions into unforgettable moments 
-            that resonate across the globe.
+            Two decades of transforming visions into unforgettable moments that resonate across the globe.
           </p>
         </motion.div>
       </section>
 
-      {/* Editorial Story Section */}
       <section className="py-24 lg:py-32 bg-[#eff6ff]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -102,25 +96,16 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Founded in 2005, Renaissance Events emerged from a simple yet 
-                  powerful belief: that every event holds the potential to become 
-                  a defining moment—a story that lives on long after the final 
-                  curtain falls.
+                  Founded in 2005, Renaissance Events began with a belief that every event has the power to become a defining moment.
                 </p>
                 <p>
-                  What began as a boutique agency serving discerning clients in 
-                  New York has evolved into a global force, orchestrating 
-                  experiences across five continents for the world's most 
-                  prestigious brands and institutions.
+                  We have grown from a boutique agency in New York into a trusted global partner for brands, organizations, and leaders.
                 </p>
                 <p>
-                  Our name reflects our philosophy: each event is a renaissance—
-                  a rebirth of possibility, where creativity meets precision, 
-                  and imagination transforms into reality.
+                  Our approach blends creativity, technical precision, and thoughtful storytelling to deliver unforgettable experiences.
                 </p>
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +115,7 @@ export default function About() {
             >
               <div className="image-zoom-container relative">
                 <img
-                  src="/images/4.jpeg"
+                  src="/images/6.jpeg"
                   alt="Elegant event setting"
                   className="w-full h-[600px] object-cover"
                 />
@@ -141,7 +126,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-24 lg:py-32 bg-[#f8f9fa]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -182,12 +166,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* Philosophy Section */}
       <section className="py-24 lg:py-32 bg-[#0a1628] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/conference-summit.jpg)' }}
+            style={{ backgroundImage: 'url(/images/7.jpeg)' }}
           />
         </div>
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
@@ -201,13 +184,12 @@ export default function About() {
             >
               <div className="image-zoom-container">
                 <img
-                  src="/images/5.jpeg"
+                  src="/images/8.jpeg"
                   alt="Event production"
                   className="w-full h-[500px] object-cover"
                 />
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -221,20 +203,13 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-white/80 text-lg leading-relaxed">
                 <p>
-                  We believe that exceptional events are born from the seamless 
-                  fusion of artistry and logistics. Every detail matters—from 
-                  the ambient lighting to the flow of guest movement, from the 
-                  texture of linens to the precision of timing.
+                  We believe that exceptional events are born from the seamless fusion of artistry and logistics.
                 </p>
                 <p>
-                  Our approach is deeply collaborative. We don't just execute 
-                  your vision; we elevate it, challenge it, and bring dimensions 
-                  you hadn't imagined possible.
+                  Our team combines technical precision, creative insight, and immersive storytelling to shape every experience.
                 </p>
                 <p>
-                  At Renaissance Events, we're not in the business of planning 
-                  parties. We're in the business of creating moments that become 
-                  part of your organization's legacy.
+                  We are not planning events; we are crafting moments that evolve into legacy.
                 </p>
               </div>
             </motion.div>
@@ -242,7 +217,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
       <section className="py-24 lg:py-32 bg-[#fff1f2]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -257,7 +231,7 @@ export default function About() {
               Leadership
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Visionaries who bring decades of expertise to every experience
+              Visionaries who bring decades of expertise to every experience.
             </p>
           </motion.div>
 
@@ -271,24 +245,19 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="reveal-on-scroll group"
               >
-                <div className="space-y-6">
-                  <div className="image-zoom-container relative overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/90 via-transparent to-transparent" />
-                  </div>
-                  <div className="p-6 bg-white">
-                    <h3 className="font-serif text-2xl text-[#0a1628] mb-2">
+                <div className="image-zoom-container relative overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/90 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <h3 className="font-serif text-2xl text-white mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-[#c9a962] text-sm tracking-widest uppercase mb-4">
+                    <p className="text-[#c9a962] text-sm tracking-widest uppercase">
                       {member.role}
-                    </p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {member.bio}
                     </p>
                   </div>
                 </div>
@@ -298,7 +267,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-[#f8f9fa]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
@@ -314,8 +282,7 @@ export default function About() {
               <span className="text-[#c9a962]">Remarkable Together</span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              Ready to bring your vision to life? We'd love to hear about 
-              your next extraordinary event.
+              Ready to bring your vision to life? We'd love to hear about your next extraordinary event.
             </p>
             <Link
               to="/contact"
