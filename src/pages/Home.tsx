@@ -72,7 +72,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+          className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-28 lg:pt-32"
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}

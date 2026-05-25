@@ -145,7 +145,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+          className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-28 lg:pt-32"
         >
           <p className="text-[#c9a962] text-sm tracking-widest uppercase mb-6">
             What We Do

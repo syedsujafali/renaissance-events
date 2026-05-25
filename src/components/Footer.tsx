@@ -47,7 +47,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Renaissance logo"
-                className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain"
+                className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain"
               />
               <div>
                 <h3 className="font-serif text-3xl lg:text-4xl font-semibold tracking-wide">RENAISSANCE</h3>
@@ -174,7 +174,7 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-12 hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {['15-1.jpg', '17-1.jpg', '14.jpg', '16.jpg'].map((name) => (
             <div key={name} className="overflow-hidden rounded-3xl border border-white/10 shadow-lg shadow-black/5">
               <img
