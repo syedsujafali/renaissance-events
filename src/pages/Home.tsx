@@ -366,12 +366,10 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-[#0a1628] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/3.jpeg)' }}
-          />
-        </div>
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: 'url(/images/3.jpeg)' }}
+        />
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
