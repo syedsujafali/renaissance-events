@@ -10,6 +10,7 @@ export default function Footer() {
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
     { label: 'Portfolio', to: '/portfolio' },
+    { label: 'Gallery', to: '/gallery' },
     { label: 'Contact', to: '/contact' },
   ];
 
@@ -34,7 +35,7 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-screen-2xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
-        <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr] gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr_1.2fr] gap-12 lg:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,33 +43,24 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <img
-                  src="/images/logo.png"
-                  alt="Renaissance logo"
-                  className="w-16 h-16 lg:w-20 lg:h-20 object-contain"
-                />
-                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#c9a962] rounded-full" />
-              </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <img
+                src="/images/logo.png"
+                alt="Renaissance logo"
+                className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain"
+              />
               <div>
-                <h3 className="font-serif text-2xl font-semibold tracking-wide">RENAISSANCE</h3>
-                <p className="text-[#c9a962] text-xs tracking-widest uppercase">Events & Experiences</p>
+                <h3 className="font-serif text-3xl lg:text-4xl font-semibold tracking-wide">RENAISSANCE</h3>
+                <p className="text-[#c9a962] text-xs sm:text-sm tracking-widest uppercase">Events & Experiences</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-              We design bold, detail-driven events that connect brands and audiences with unforgettable moments.
-            </p>
-            <div className="grid grid-cols-2 gap-3">
-              {['6.jpeg', '7.jpeg', '8.jpeg', '9.jpeg'].map((name) => (
-                <div key={name} className="overflow-hidden rounded-sm border border-white/10">
-                  <img
-                    src={`/images/${name}`}
-                    alt="Renaissance event highlight"
-                    className="w-full h-24 object-cover"
-                  />
-                </div>
-              ))}
+            <div className="space-y-4 max-w-md">
+              <p className="text-gray-400 text-sm leading-relaxed">
+                We design bold, detail-driven events that connect brands and audiences with unforgettable moments.
+              </p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                From premium product launches to immersive brand activations, we deliver thoughtful experiences that feel elevated, modern, and intentional.
+              </p>
             </div>
           </motion.div>
 
@@ -154,9 +146,47 @@ export default function Footer() {
               </div>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-6"
+          >
+            <h4 className="font-serif text-lg font-semibold text-[#c9a962] mb-6">Newsletter</h4>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Join our list for event insights, trend reports, and access to curated experiences.
+            </p>
+            <form className="mt-4 flex flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="w-full px-4 py-3 bg-[#0a1628] border border-white/10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#c9a962]"
+              />
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-6 py-3 bg-[#c9a962] text-[#0a1628] uppercase tracking-[0.3em] text-sm font-semibold hover:bg-[#d4b978] transition-colors duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
+          </motion.div>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-8">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {['15-1.jpg', '17-1.jpg', '14.jpg', '16.jpg'].map((name) => (
+            <div key={name} className="overflow-hidden rounded-3xl border border-white/10 shadow-lg shadow-black/5">
+              <img
+                src={`/images/${name}`}
+                alt="Footer banner highlight"
+                className="w-full h-28 sm:h-32 object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 border-t border-white/10 pt-8">
           <div className="flex flex-col lg:flex-row justify-between gap-6 text-sm text-gray-400">
             <p>© {currentYear} Renaissance Events. All rights reserved.</p>
             <div className="flex flex-wrap items-center gap-4">

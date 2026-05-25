@@ -106,6 +106,78 @@ export default function Portfolio() {
       image: '/images/3.jpeg',
       description: 'An engaging summit facilitating meaningful professional connections.',
     },
+    {
+      id: 9,
+      title: 'Global Wellness Retreat',
+      category: 'brand',
+      location: 'Sedona, AZ',
+      attendees: '320+',
+      image: '/images/9-new.jpg',
+      description: 'A luxury wellness retreat with bespoke programming, curated environments, and immersive moments.',
+    },
+    {
+      id: 10,
+      title: 'Retail Launch Experience',
+      category: 'brand',
+      location: 'Tokyo, Japan',
+      attendees: '1,100+',
+      image: '/images/10.jpg',
+      description: 'A global retail launch that combined theatrical staging, interactive activations, and premium hospitality.',
+    },
+    {
+      id: 11,
+      title: 'Global Awards Night',
+      category: 'gala',
+      location: 'Dubai, UAE',
+      attendees: '950+',
+      image: '/images/10-1.jpg',
+      description: 'A glamorous awards evening with red carpet arrivals, dynamic lighting, and immersive production.',
+    },
+    {
+      id: 12,
+      title: 'Immersive Product Reveal',
+      category: 'production',
+      location: 'Berlin, Germany',
+      attendees: '1,500+',
+      image: '/images/11.jpg',
+      description: 'A compelling product reveal layered with experiential storytelling and dramatic staging.',
+    },
+    {
+      id: 13,
+      title: 'Cultural Activation',
+      category: 'brand',
+      location: 'São Paulo, Brazil',
+      attendees: '2,200+',
+      image: '/images/11-1.jpg',
+      description: 'An immersive brand activation connecting culture, creativity, and meaningful audience impact.',
+    },
+    {
+      id: 14,
+      title: 'Leadership Forum',
+      category: 'corporate',
+      location: 'Zurich, Switzerland',
+      attendees: '220+',
+      image: '/images/12-1.jpg',
+      description: 'An executive forum designed for strategic conversation, innovation, and polished attendee experiences.',
+    },
+    {
+      id: 15,
+      title: 'Signature Gala Evening',
+      category: 'gala',
+      location: 'Rome, Italy',
+      attendees: '780+',
+      image: '/images/12-2.jpg',
+      description: 'An elegant gala celebration with refined production, luxe dining, and award-winning design.',
+    },
+    {
+      id: 16,
+      title: 'Technology Expo',
+      category: 'production',
+      location: 'Seoul, South Korea',
+      attendees: '8,000+',
+      image: '/images/13.jpg',
+      description: 'A large-scale technology expo featuring immersive displays, keynote stages, and strategic brand storytelling.',
+    },
   ];
 
   const filteredProjects =
@@ -246,7 +318,7 @@ export default function Portfolio() {
           >
             <div className="image-zoom-container">
               <img
-                src="/images/9.jpeg"
+                src="/images/14.jpg"
                 alt="Featured project"
                 className="w-full h-[500px] lg:h-[600px] object-cover"
               />

@@ -216,6 +216,35 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Creative Capabilities */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] items-center">
+            <div className="space-y-8">
+              <div className="w-16 h-px bg-[#c9a962]" />
+              <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">Capability Showcase</p>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
+                Distinctive moments crafted through premium design and technical excellence.
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
+                From elegant gala environments to immersive brand activations, our visual approach brings cohesion, depth, and an elevated sense of luxury.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {['14.jpg', '15.jpg', '15-1.jpg', '16.jpg'].map((name) => (
+                <div key={name} className="overflow-hidden rounded-sm shadow-lg shadow-gray-200/40">
+                  <img
+                    src={`/images/${name}`}
+                    alt={`Creative capability ${name}`}
+                    className="w-full h-56 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-24 lg:py-32 bg-[#f8f9fa]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
@@ -275,7 +304,7 @@ export default function Services() {
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/9.jpeg)' }}
+            style={{ backgroundImage: 'url(/images/17-1.jpg)' }}
           />
         </div>
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
@@ -337,8 +366,14 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-[#fef2f2]">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <section className="py-24 lg:py-32 bg-[#fef2f2] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url(/images/17.jpg)' }}
+          />
+        </div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

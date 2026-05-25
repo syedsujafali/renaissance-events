@@ -241,6 +241,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Experience Gallery */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-center">
+            <div className="space-y-8">
+              <div className="w-16 h-px bg-[#c9a962]" />
+              <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">Visual Storytelling</p>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
+                A premium collection of immersive moments that define our events.
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
+                These images capture our bold creative direction, thoughtful environments, and the polished energy of every stage we design.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {['10.jpg', '11.jpg', '12.jpg', '12-1.jpg', '13.jpg', '13-1.jpg'].map((name) => (
+                <div key={name} className="overflow-hidden rounded-sm">
+                  <img
+                    src={`/images/${name}`}
+                    alt={`Event storytelling ${name}`}
+                    className="w-full h-52 sm:h-60 lg:h-52 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Projects */}
       <section className="py-24 lg:py-32 bg-[#f8f9fa]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">

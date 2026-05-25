@@ -328,7 +328,34 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Project Showcase */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-8 items-center">
+            <div>
+              <div className="w-16 h-px bg-[#c9a962] mb-8" />
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight mb-6">
+                Recent Projects in Motion
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">
+                See how our recent collaborations translate into immersive environments, elevated guest experiences, and impactful storytelling.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {['11-1.jpg', '12.jpg', '15-1.jpg', '9-new.jpg'].map((image) => (
+                <div key={image} className="overflow-hidden rounded-sm bg-[#f8f9fa] shadow-lg shadow-gray-200/20">
+                  <img
+                    src={`/images/${image}`}
+                    alt={`Contact showcase ${image}`}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="py-24 lg:py-32 bg-[#f8f9fa]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div

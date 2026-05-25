@@ -166,6 +166,35 @@ export default function About() {
         </div>
       </section>
 
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-8">
+              <div className="w-16 h-px bg-[#c9a962]" />
+              <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">Crafted Environments</p>
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
+                The spaces, moments, and design details that make every event feel premium.
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                We combine elegant staging, immersive lighting, and thoughtful guest flow to create settings that feel sophisticated and effortlessly memorable.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {['16.jpg', '17.jpg'].map((image) => (
+                <div key={image} className="overflow-hidden rounded-sm shadow-lg shadow-gray-200/20">
+                  <img
+                    src={`/images/${image}`}
+                    alt={`About visual ${image}`}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 lg:py-32 bg-[#0a1628] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
