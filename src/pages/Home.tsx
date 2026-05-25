@@ -61,10 +61,10 @@ export default function Home() {
           className="absolute inset-0"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center filter brightness-110"
             style={{ backgroundImage: 'url(/images/1.jpeg)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/70 via-[#0a1628]/50 to-[#0a1628]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/25 via-transparent to-[#0a1628]/25" />
         </motion.div>
 
         {/* Hero Content */}
@@ -73,6 +73,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-28 lg:pt-32"
+          style={{ textShadow: '0 18px 30px rgba(0, 0, 0, 0.4)' }}
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -82,13 +83,17 @@ export default function Home() {
           >
             <Star className="w-8 h-8 text-[#c9a962] mx-auto" />
           </motion.div>
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl font-medium text-white leading-tight mb-8">
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f5f5f5] via-[#e2e2e2] to-[#d9d9d9] tracking-[-0.01em] leading-tight mb-8"
+            style={{ WebkitTextStroke: '0.02em rgba(255, 255, 255, 0.7)', textShadow: '0 2px 12px rgba(0, 0, 0, 0.2), 0 10px 24px rgba(0, 0, 0, 0.18)' }}
+          >
             Where Vision Meets
             <br />
-            <span className="text-[#c9a962]">Extraordinary</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5f5f5] via-[#e2e2e2] to-[#d9d9d9]">Extraordinary</span>
           </h1>
-          <p className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-12 leading-relaxed">
-            Renaissance Events crafts immersive experiences that captivate, 
+          <p className="text-white text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-12 tracking-[0.01em] leading-[1.9]"
+            style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.18)' }}
+          >
+            Renaissance Events crafts immersive experiences that captivate,
             inspire, and leave an indelible mark on the world's most discerning audiences.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -101,7 +106,7 @@ export default function Home() {
             </Link>
             <Link
               to="/contact"
-              className="btn-luxury border border-white/30 hover:border-white hover:bg-white/10 text-white px-8 lg:px-10 py-4 text-sm tracking-widest uppercase font-medium"
+              className="btn-luxury bg-white text-[#0a1628] shadow-lg shadow-black/10 border border-transparent hover:bg-[#f3f0e6] px-8 lg:px-10 py-4 text-sm tracking-widest uppercase font-medium"
             >
               Start a Conversation
             </Link>
@@ -244,27 +249,47 @@ export default function Home() {
       {/* Experience Gallery */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-center">
+          <div className="grid gap-12 lg:grid-cols-[1.3fr_0.95fr] items-center">
+            <div className="grid grid-cols-2 gap-4">
+              {['10.jpg', '11.jpg', '12.jpg', '12-1.jpg', '13.jpg', '13-1.jpg'].map((name) => (
+                <div key={name} className="overflow-hidden rounded-xl bg-gray-100 shadow-sm">
+                  <img
+                    src={`/images/${name}`}
+                    alt={`Event storytelling ${name}`}
+                    className="w-full h-56 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
             <div className="space-y-8">
               <div className="w-16 h-px bg-[#c9a962]" />
               <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">Visual Storytelling</p>
               <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
-                A premium collection of immersive moments that define our events.
+                A premium showcase of immersive design, cinematic staging, and unforgettable moments.
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
-                These images capture our bold creative direction, thoughtful environments, and the polished energy of every stage we design.
+                These images highlight our ability to craft a strong visual narrative for every event, using elegant lighting, refined materials, and polished guest experiences.
               </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {['10.jpg', '11.jpg', '12.jpg', '12-1.jpg', '13.jpg', '13-1.jpg'].map((name) => (
-                <div key={name} className="overflow-hidden rounded-sm">
-                  <img
-                    src={`/images/${name}`}
-                    alt={`Event storytelling ${name}`}
-                    className="w-full h-52 sm:h-60 lg:h-52 object-cover"
-                  />
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="rounded-3xl border border-gray-200 p-6">
+                  <h3 className="font-semibold text-xl text-[#0a1628] mb-3">Cinematic Atmosphere</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We design every scene to look striking in person and on camera, amplifying your brand story with a premium visual voice.
+                  </p>
                 </div>
-              ))}
+                <div className="rounded-3xl border border-gray-200 p-6">
+                  <h3 className="font-semibold text-xl text-[#0a1628] mb-3">Curated Details</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    From grand gestures to subtle touches, each element is selected to create cohesion, confidence, and a memorable guest journey.
+                  </p>
+                </div>
+                <div className="sm:col-span-2 rounded-3xl border border-gray-200 p-6">
+                  <h3 className="font-semibold text-xl text-[#0a1628] mb-3">Story-first Execution</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Our visual storytelling blends strategy with artistry so every moment reinforces your message and leaves a lasting impression.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
