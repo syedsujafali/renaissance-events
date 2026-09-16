@@ -36,29 +36,45 @@ export default function Header() {
     { to: '/about', label: 'About' },
     { to: '/services', label: 'Services' },
     { to: '/portfolio', label: 'Portfolio' },
-    { to: '/gallery', label: 'Gallery' },
-    { to: '/contact', label: 'Contact' },
   ];
+
+  const isHomePage = location.pathname === '/';
+  const showNav = !isHomePage || isScrolled;
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 h-16 lg:h-20 bg-[#0a1628]/100 backdrop-blur-2xl shadow-2xl border-b border-white/10 transition-all duration-500'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        showNav || isMobileMenuOpen
+          ? 'h-24 sm:h-28 lg:h-32 bg-[#06369c]/95 backdrop-blur-2xl shadow-2xl border-b border-white/10'
+          : 'h-28 sm:h-36 lg:h-44 bg-transparent border-b border-transparent shadow-none'
       )}
     >
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+      <div className="max-w-screen-2xl 2xl:max-w-[1600px] 3xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 h-full">
         <div className="flex items-center justify-between h-full px-0">
           {/* Logo */}
-          <Link to="/" className="group flex items-center">
+          <Link to="/" className="group flex items-center py-2 shrink-0">
             <img
               src="/images/logo.png"
               alt="Renaissance logo"
-              className="h-14 sm:h-16 lg:h-20 w-auto max-w-[160px] object-contain"
+              className={cn(
+                'w-auto object-contain transition-all duration-500 filter drop-shadow-xl',
+                showNav || isMobileMenuOpen
+                  ? 'h-18 sm:h-24 lg:h-30 max-w-[280px] sm:max-w-[400px] lg:max-w-[500px]'
+                  : 'h-14 sm:h-18 lg:h-22 max-w-[180px] sm:max-w-[240px] lg:max-w-[300px]'
+              )}
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Navigation - Always visible except on top of Home Hero */}
+          <nav
+            className={cn(
+              'hidden lg:flex items-center space-x-8 transition-all duration-500',
+              showNav
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-2 pointer-events-none'
+            )}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -66,7 +82,7 @@ export default function Header() {
                 className={cn(
                   'nav-link text-sm tracking-widest uppercase transition-colors duration-300',
                   location.pathname === link.to
-                    ? 'text-[#c9a962]'
+                    ? 'text-white font-semibold underline underline-offset-4'
                     : 'text-white/80 hover:text-white'
                 )}
               >
@@ -75,16 +91,21 @@ export default function Header() {
             ))}
             <Link
               to="/contact"
-              className="btn-luxury bg-[#c9a962] hover:bg-[#d4b978] text-[#0a1628] px-6 py-3 text-sm tracking-widest uppercase font-medium"
+              className="btn-luxury bg-white hover:bg-white/90 text-[#06369c] px-6 py-3 text-sm tracking-widest uppercase font-medium"
             >
               Get in Touch
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Always visible except on top of Home Hero */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-white p-2 h-10 w-10 rounded-full border border-white/15 bg-white/10 shadow-md hover:bg-white/20 transition-colors duration-300 flex items-center justify-center"
+            className={cn(
+              'lg:hidden text-white p-2 h-10 w-10 rounded-full border border-white/15 bg-white/10 shadow-md hover:bg-white/20 transition-all duration-300 flex items-center justify-center',
+              showNav || isMobileMenuOpen
+                ? 'opacity-100 pointer-events-auto'
+                : 'opacity-0 pointer-events-none'
+            )}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -110,7 +131,7 @@ export default function Header() {
           {/* Drawer */}
           <aside
             className={cn(
-              'fixed right-0 top-0 bottom-0 z-[9999] h-full w-full max-w-full sm:w-[420px] flex flex-col overflow-hidden bg-[#07101f]/95 backdrop-blur-md shadow-2xl border-l border-white/10 transition-transform duration-500',
+              'fixed right-0 top-0 bottom-0 z-[9999] h-full w-full max-w-full sm:w-[420px] flex flex-col overflow-hidden bg-[#06369c]/95 backdrop-blur-md shadow-2xl border-l border-white/10 transition-transform duration-500',
               isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
             )}
             role="dialog"
@@ -140,7 +161,7 @@ export default function Header() {
                     className={cn(
                       'block rounded-[20px] px-5 py-4 text-left text-lg font-medium tracking-[0.12em] transition duration-300 whitespace-nowrap overflow-hidden text-ellipsis',
                       location.pathname === link.to
-                        ? 'bg-white/10 text-[#c9a962]'
+                        ? 'bg-white/20 text-white font-semibold'
                         : 'bg-white/5 text-white/80 hover:bg-white/15 hover:text-white'
                     )}
                   >
@@ -154,7 +175,7 @@ export default function Header() {
               <Link
                 to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex w-full items-center justify-center rounded-[20px] bg-[#c9a962] px-6 py-4 text-sm uppercase tracking-[0.28em] text-[#0a1628] transition hover:bg-[#d4b978]"
+                className="flex w-full items-center justify-center rounded-[20px] bg-white px-6 py-4 text-sm uppercase tracking-[0.28em] text-[#06369c] font-semibold transition hover:bg-white/90"
               >
                 Get in Touch
               </Link>

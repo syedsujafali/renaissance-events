@@ -1,10 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --color-renaissance-blue: #0a1628;
-  --color-renaissance-blue-light: #152238;
-  --color-renaissance-gold: #c9a962;
-  --color-renaissance-gold-light: #d4b978;
+  --color-renaissance-blue: #06369c;
+  --color-renaissance-primary: #06369c;
 }
 
 html {
@@ -14,12 +12,30 @@ html {
 body {
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
-  color: #1a1a1a;
+  color: #06369c;
   overflow-x: hidden;
+}
+
+/* Luxury subtle white radial glow over brand blue (#06369c) */
+.bg-renaissance-blue {
+  background-color: #06369c;
+  background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Luxury animations */
@@ -30,7 +46,6 @@ h1, h2, h3, h4, h5, h6 {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -72,16 +87,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-renaissance-blue);
+  background: #06369c;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1a2a4a;
+  background: #06369c;
 }
 
 /* Image hover effects */
@@ -121,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 0;
   height: 1px;
-  background-color: var(--color-renaissance-gold);
+  background-color: #ffffff;
   transition: width 0.3s ease;
 }
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles, Camera, Layers, Compass } from 'lucide-react';
+import { Sparkles, Camera, Compass } from 'lucide-react';
 
 const galleryImages = [
   '9-new.jpg',
@@ -24,12 +24,12 @@ const galleryImages = [
 export default function Gallery() {
   return (
     <main className="overflow-hidden">
-      <section className="relative h-[70vh] min-h-[450px] flex items-center justify-center overflow-hidden bg-[#0a1628]">
+      <section className="relative h-[70vh] min-h-[450px] flex items-center justify-center overflow-hidden bg-[#06369c]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: 'url(/images/10-1.jpg)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/70 via-[#0a1628]/50 to-[#0a1628]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06369c]/70 via-[#06369c]/50 to-[#06369c]" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -37,21 +37,21 @@ export default function Gallery() {
           transition={{ duration: 1 }}
           className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-28 lg:pt-32"
         >
-          <p className="text-[#c9a962] text-sm tracking-widest uppercase mb-6">
+          <p className="text-white/80 text-sm tracking-widest uppercase mb-6">
             Visual Portfolio
           </p>
           <h1 className="font-serif text-5xl lg:text-6xl font-medium text-white leading-tight mb-6">
             Gallery of
             <br />
-            <span className="text-[#c9a962]">Premium Moments</span>
+            <span className="text-white">Premium Moments</span>
           </h1>
-          <p className="text-white/70 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
             Discover a curated collection of our newest event imagery, crafted spaces, and immersive activations designed to inspire and elevate every brand moment.
           </p>
         </motion.div>
       </section>
 
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="relative py-24 lg:py-32 bg-white">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-3">
             {[
@@ -80,15 +80,15 @@ export default function Gallery() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6 }}
-                className="reveal-on-scroll rounded-sm border border-gray-200 p-10 shadow-sm"
+                className="reveal-on-scroll rounded-sm border border-[#06369c]/20 p-10 shadow-sm"
               >
-                <div className="w-14 h-14 bg-[#0a1628] flex items-center justify-center mb-6 rounded-full">
-                  <item.icon className="w-7 h-7 text-[#c9a962]" />
+                <div className="w-14 h-14 bg-[#06369c] flex items-center justify-center mb-6 rounded-full">
+                  <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h2 className="font-serif text-2xl text-[#0a1628] mb-4">
+                <h2 className="font-serif text-2xl text-[#06369c] mb-4">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-[#06369c]/80 leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -97,14 +97,14 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 bg-[#f8f9fa]">
+      <section className="relative py-24 lg:py-32 bg-[#06369c] text-white">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <div className="w-16 h-px bg-[#c9a962] mx-auto mb-8" />
-            <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] mb-4">
+            <div className="w-16 h-px bg-white mx-auto mb-8" />
+            <h2 className="font-serif text-4xl lg:text-5xl font-medium text-white mb-4">
               Gallery Highlights
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-white/80 text-lg max-w-3xl mx-auto leading-relaxed">
               A wide view of premium events, branded activations, elegant gathering spaces, and design-led moments.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function Gallery() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6 }}
-                className="reveal-on-scroll image-zoom-container overflow-hidden rounded-sm bg-white shadow-sm"
+                className="reveal-on-scroll image-zoom-container overflow-hidden rounded-sm bg-white/10 border border-white/20 shadow-sm"
               >
                 <img
                   src={`/images/${image}`}
@@ -130,7 +130,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32 bg-[#0a1628] relative overflow-hidden">
+      <section className="relative py-24 lg:py-32 bg-[#06369c] border-t border-white/10 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -148,12 +148,12 @@ export default function Gallery() {
             <h2 className="font-serif text-4xl lg:text-6xl font-medium text-white leading-tight">
               Inspire Your Next Event
             </h2>
-            <p className="text-white/70 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-white/80 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
               Browse our curated visuals to see how premium event storytelling brings every brand activation to life.
             </p>
             <Link
               to="/portfolio"
-              className="btn-luxury inline-flex items-center gap-3 bg-[#c9a962] hover:bg-[#d4b978] text-[#0a1628] px-10 lg:px-12 py-5 text-sm tracking-widest uppercase font-medium"
+              className="btn-luxury inline-flex items-center gap-3 bg-white hover:bg-white/90 text-[#06369c] px-10 lg:px-12 py-5 text-sm tracking-widest uppercase font-semibold"
             >
               View Full Portfolio
             </Link>

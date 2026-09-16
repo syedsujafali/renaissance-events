@@ -21,8 +21,8 @@
       "@/*": ["src/*"]
     },
 
-    /* Suppress deprecation warnings for TS 6 -> 7 migration */
-    "ignoreDeprecations": "6.0",
+    /* Suppress deprecation warnings */
+    "ignoreDeprecations": "5.0",
 
     /* Linting */
     "strict": true,

@@ -1,209 +1,76 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Globe, Share2, Star, Heart } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { label: 'Home', to: '/' },
-    { label: 'About', to: '/about' },
-    { label: 'Services', to: '/services' },
-    { label: 'Portfolio', to: '/portfolio' },
-    { label: 'Gallery', to: '/gallery' },
-    { label: 'Contact', to: '/contact' },
-  ];
-
-  const services = [
-    'Event Planning & Production',
-    'Corporate Events',
-    'Brand Activations',
-    'Large-Scale Productions',
-  ];
-
-  const socialLinks = [
-    { icon: Globe, label: 'Website', url: '#' },
-    { icon: Share2, label: 'Discover', url: '#' },
-    { icon: Star, label: 'Community', url: '#' },
-  ];
-
   return (
-    <footer className="bg-[#0a1628] text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-10 left-[-4rem] w-72 h-72 rounded-full bg-[#c9a962] blur-3xl" />
-        <div className="absolute bottom-10 right-[-4rem] w-72 h-72 rounded-full bg-[#c9a962] blur-3xl" />
-      </div>
-
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
-        <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr_1fr_1.2fr] gap-12 lg:gap-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <img
-                src="/images/logo.png"
-                alt="Renaissance logo"
-                className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain"
-              />
-              <div>
-                <h3 className="font-serif text-3xl lg:text-4xl font-semibold tracking-wide">RENAISSANCE</h3>
-                <p className="text-[#c9a962] text-xs sm:text-sm tracking-widest uppercase">Events & Experiences</p>
-              </div>
-            </div>
-            <div className="space-y-4 max-w-md">
-              <p className="text-gray-400 text-sm leading-relaxed">
-                We design bold, detail-driven events that connect brands and audiences with unforgettable moments.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                From premium product launches to immersive brand activations, we deliver thoughtful experiences that feel elevated, modern, and intentional.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="grid grid-cols-2 gap-8"
-          >
-            <div>
-              <h4 className="font-serif text-lg font-semibold text-[#c9a962] mb-6">Explore</h4>
-              <nav className="space-y-3">
-                {quickLinks.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    className="block text-gray-400 hover:text-[#c9a962] transition-colors duration-300 text-sm leading-relaxed"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            <div>
-              <h4 className="font-serif text-lg font-semibold text-[#c9a962] mb-6">Services</h4>
-              <div className="space-y-3">
-                {services.map((service) => (
-                  <Link
-                    key={service}
-                    to="/services"
-                    className="block text-gray-400 hover:text-[#c9a962] transition-colors duration-300 text-sm leading-relaxed"
-                  >
-                    {service}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            <div>
-              <h4 className="font-serif text-lg font-semibold text-[#c9a962] mb-6">Contact</h4>
-              <div className="space-y-4 text-sm text-gray-400">
-                <a
-                  href="mailto:info@renaissanceevents.com"
-                  className="block hover:text-[#c9a962] transition-colors duration-300"
-                >
-                  info@renaissanceevents.com
-                </a>
-                <a
-                  href="tel:+1234567890"
-                  className="block hover:text-[#c9a962] transition-colors duration-300"
-                >
-                  +1 (234) 567-8900
-                </a>
-                <p>New York · London · Dubai</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-serif text-lg font-semibold text-[#c9a962] mb-6">Follow Us</h4>
-              <div className="flex items-center gap-4">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.url}
-                      aria-label={social.label}
-                      className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#c9a962] flex items-center justify-center transition-colors duration-300"
-                    >
-                      <Icon className="w-5 h-5 text-white" />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-6"
-          >
-            <h4 className="font-serif text-lg font-semibold text-[#c9a962] mb-6">Newsletter</h4>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Join our list for event insights, trend reports, and access to curated experiences.
+    <footer className="bg-white text-[#06369c] py-12 px-6 sm:px-10 lg:px-16 font-sans">
+      <div className="max-w-screen-2xl 2xl:max-w-[1600px] 3xl:max-w-[1920px] mx-auto space-y-10">
+        
+        {/* Top Header Row: NAVIGATE (Left) and INQUIRES (Right) */}
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-6">
+          {/* NAVIGATE Links */}
+          <div className="space-y-2">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#06369c]/60 font-bold">
+              NAVIGATE
             </p>
-            <form className="mt-4 flex flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="w-full px-4 py-3 bg-[#0a1628] border border-white/10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#c9a962]"
-              />
-              <button
-                type="submit"
-                className="w-full sm:w-auto px-6 py-3 bg-[#c9a962] text-[#0a1628] uppercase tracking-[0.3em] text-sm font-semibold hover:bg-[#d4b978] transition-colors duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
-          </motion.div>
-        </div>
+            <nav className="flex flex-col space-y-1 text-xs sm:text-sm font-medium text-[#06369c]">
+              <Link to="/" className="hover:opacity-75 transition-opacity">Home</Link>
+              <Link to="/about" className="hover:opacity-75 transition-opacity">About</Link>
+              <Link to="/portfolio" className="hover:opacity-75 transition-opacity">Portfolio</Link>
+              <Link to="/contact" className="hover:opacity-75 transition-opacity">Get in Touch</Link>
+            </nav>
+          </div>
 
-        <div className="mt-12 hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {['15-1.jpg', '17-1.jpg', '14.jpg', '16.jpg'].map((name) => (
-            <div key={name} className="overflow-hidden rounded-3xl border border-white/10 shadow-lg shadow-black/5">
-              <img
-                src={`/images/${name}`}
-                alt="Footer banner highlight"
-                className="w-full h-28 sm:h-32 object-cover"
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 border-t border-white/10 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between gap-6 text-sm text-gray-400">
-            <p>© {currentYear} Renaissance Events. All rights reserved.</p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link to="#" className="hover:text-[#c9a962] transition-colors duration-300">
-                Privacy Policy
-              </Link>
-              <span className="hidden lg:block">•</span>
-              <Link to="#" className="hover:text-[#c9a962] transition-colors duration-300">
-                Terms of Service
-              </Link>
-              <span className="hidden lg:block">•</span>
-              <Link to="#" className="hover:text-[#c9a962] transition-colors duration-300">
-                Cookies Policy
-              </Link>
+          {/* INQUIRIES Email Links */}
+          <div className="space-y-2 sm:text-right">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-[#06369c]/60 font-bold">
+              INQUIRIES
+            </p>
+            <div className="flex flex-col space-y-1 text-xs sm:text-sm font-medium text-[#06369c]">
+              <a href="mailto:info@renaissanceevents.com" className="hover:opacity-75 transition-opacity">
+                info@renaissanceevents.com
+              </a>
+              <a href="mailto:info@specialeventschannel.com" className="hover:opacity-75 transition-opacity">
+                info@specialeventschannel.com
+              </a>
             </div>
           </div>
         </div>
+
+        {/* Middle Centerpiece: Framed Serif Brand Logo Block (Constrained to text width) */}
+        <div className="py-2 text-center">
+          <div className="inline-block max-w-full mx-auto space-y-3">
+            {/* Top Line Framing RENAISSANCE */}
+            <div className="border-t border-[#06369c]/30 pt-6 pb-2">
+              <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[0.12em] text-[#06369c] uppercase leading-none">
+                RENAISSANCE
+              </h1>
+            </div>
+            
+            {/* Middle Line Framing subtext & Bottom Line */}
+            <div className="border-t border-b border-[#06369c]/30 py-4 space-y-1">
+              <p className="font-serif text-[11px] sm:text-xs md:text-sm tracking-[0.4em] uppercase text-[#06369c]">
+                MEETINGS
+              </p>
+              <p className="font-serif text-[10px] sm:text-xs tracking-[0.3em] text-[#06369c]/80">
+                &
+              </p>
+              <p className="font-serif text-[11px] sm:text-xs md:text-sm tracking-[0.4em] uppercase text-[#06369c]">
+                SPECIAL EVENTS, INC.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Copyright (Left) & Privacy Policy (Right) */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-[#06369c]/60 pt-2">
+          <p>© {currentYear} RENAISSANCE MEETINGS & SPECIAL EVENTS. ALL RIGHTS RESERVED.</p>
+          <Link to="/contact" className="hover:text-[#06369c] transition-colors">
+            PRIVACY POLICY
+          </Link>
+        </div>
+
       </div>
     </footer>
   );

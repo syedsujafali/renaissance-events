@@ -1,403 +1,241 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Star } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+import SectionWave from '../components/SectionWave';
+import GlobalContactSection from '../components/GlobalContactSection';
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const textSectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(textSectionRef, { once: false, margin: '-10% 0px -10% 0px' });
+
   const { scrollY } = useScroll();
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 500], [1, 1.1]);
+  const heroY = useTransform(scrollY, [0, 600], [0, 180]);
+  const heroScale = useTransform(scrollY, [0, 600], [1, 1.15]);
+  const heroDim = useTransform(scrollY, [0, 600], [1, 0.7]);
 
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px',
-    };
+  const headlineText = "Three Decades of Creating Extraordinary Moments";
+  const words = headlineText.split(" ");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      });
-    }, observerOptions);
+  const paragraph1Text = "For three decades, Renaissance Meetings & Special Events has been a trusted partner for global brands, Fortune 500 companies, associations, Sports, non-profits, and visionary leaders seeking to create moments that transcend the ordinary.";
+  const paragraph1Words = paragraph1Text.split(" ");
 
-    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
-      observer.observe(el);
-    });
+  const paragraph2Text = "From intimate executive gatherings to large-scale productions reaching thousands, we bring expertise, creativity, and precision to every event.";
+  const paragraph2Words = paragraph2Text.split(" ");
 
-    return () => observer.disconnect();
-  }, []);
-
-  const featuredProjects = [
-    {
-      title: 'Global Tech Summit 2025',
-      category: 'Corporate Events',
-      image: '/images/5.jpeg',
+  // Framer Motion Animation Variants
+  const headlineContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
     },
-    {
-      title: 'Luxury Brand Launch',
-      category: 'Brand Activations',
-      image: '/images/6.jpeg',
-    },
-    {
-      title: 'Annual Gala Dinner',
-      category: 'Special Events',
-      image: '/images/7.jpeg',
-    },
-  ];
+  };
 
+  const p1ContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.025,
+        delayChildren: 0.45,
+      },
+    },
+  };
+
+  const p2ContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.025,
+        delayChildren: 0.95,
+      },
+    },
+  };
+
+  const headlineWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 45,
+      filter: 'blur(10px)',
+      scale: 0.9,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.215, 0.61, 0.355, 1] as const,
+      },
+    },
+  };
+
+  const bodyWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 24,
+      filter: 'blur(6px)',
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.5,
+        ease: [0.215, 0.61, 0.355, 1] as const,
+      },
+    },
+  };
   return (
     <main className="overflow-hidden">
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden"
+        className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#06369c]"
       >
-        {/* Background Image */}
+        {/* Background Video with Parallax */}
         <motion.div
-          style={{ scale: heroScale, opacity: heroOpacity }}
+          style={{ y: heroY, scale: heroScale, opacity: heroDim }}
           className="absolute inset-0"
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center filter brightness-110"
-            style={{ backgroundImage: 'url(/images/1.jpeg)' }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/25 via-transparent to-[#0a1628]/25" />
+          {/* Mobile Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover md:hidden"
+          >
+            <source src="/images/mobile.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Desktop/Tablet Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover hidden md:block"
+          >
+            <source src="/images/renaissance.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </motion.div>
 
-        {/* Hero Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
+        {/* Scroll Button */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-28 lg:pt-32"
-          style={{ textShadow: '0 18px 30px rgba(0, 0, 0, 0.4)' }}
+          transition={{ duration: 1, delay: 0.8 }}
+          onClick={() => {
+            window.scrollTo({
+              top: window.innerHeight * 0.85,
+              behavior: 'smooth',
+            });
+          }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 group flex flex-col items-center gap-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer"
+          aria-label="Scroll down"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mb-6"
-          >
-            <Star className="w-8 h-8 text-[#c9a962] mx-auto" />
-          </motion.div>
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f5f5f5] via-[#e2e2e2] to-[#d9d9d9] tracking-[-0.01em] leading-tight mb-8"
-            style={{ WebkitTextStroke: '0.02em rgba(255, 255, 255, 0.7)', textShadow: '0 2px 12px rgba(0, 0, 0, 0.2), 0 10px 24px rgba(0, 0, 0, 0.18)' }}
-          >
-            Where Vision Meets
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5f5f5] via-[#e2e2e2] to-[#d9d9d9]">Extraordinary</span>
-          </h1>
-          <p className="text-white text-lg sm:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-12 tracking-[0.01em] leading-[1.9]"
-            style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.18)' }}
-          >
-            Renaissance Events crafts immersive experiences that captivate,
-            inspire, and leave an indelible mark on the world's most discerning audiences.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/portfolio"
-              className="btn-luxury bg-[#c9a962] hover:bg-[#d4b978] text-[#0a1628] px-8 lg:px-10 py-4 text-sm tracking-widest uppercase font-medium inline-flex items-center justify-center gap-3"
-            >
-              Explore Our Work
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to="/contact"
-              className="btn-luxury bg-white text-[#0a1628] shadow-lg shadow-black/10 border border-transparent hover:bg-[#f3f0e6] px-8 lg:px-10 py-4 text-sm tracking-widest uppercase font-medium"
-            >
-              Start a Conversation
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="w-px h-16 bg-gradient-to-b from-[#c9a962] to-transparent" />
-        </motion.div>
-      </section>
-
-      {/* Introduction Section */}
-      <section className="py-24 lg:py-32 bg-[#f5f3ff]">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <span className="text-[10px] uppercase tracking-[0.3em] font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+            Scroll
+          </span>
+          <div className="w-8 h-12 rounded-full border-2 border-white/40 group-hover:border-white flex items-center justify-center p-1 backdrop-blur-sm bg-white/10 transition-all duration-300 shadow-lg">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8 }}
-              className="reveal-on-scroll space-y-8"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
             >
-              <div className="w-16 h-px bg-[#c9a962]" />
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
-                Redefining the Art of
-                <span className="text-[#c9a962]"> Event Excellence</span>
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                For over two decades, Renaissance Events has been the trusted partner 
-                for global brands, Fortune 500 companies, and visionary leaders seeking 
-                to create moments that transcend the ordinary.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                From intimate executive gatherings to large-scale productions reaching 
-                thousands, we bring unparalleled expertise, creativity, and precision 
-                to every detail.
-              </p>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-3 text-[#0a1628] hover:text-[#c9a962] transition-colors duration-300 font-medium tracking-wide"
-              >
-                Discover Our Story
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8 }}
-              className="reveal-on-scroll"
-            >
-              <div className="image-zoom-container relative">
-                <img
-                  src="/images/2.jpeg"
-                  alt="Professional stage production"
-                  className="w-full h-[500px] lg:h-[600px] object-cover"
-                />
-                <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-[#c9a962]/10 -z-10" />
-              </div>
+              <ChevronDown className="w-4 h-4 text-white" />
             </motion.div>
           </div>
+        </motion.button>
+
+        {/* Hero Wave Transition to White */}
+        <div className="absolute bottom-0 left-0 right-0 z-10">
+          <SectionWave position="bottom" fillColor="text-white" />
         </div>
       </section>
 
-      {/* Signature Highlights */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8 }}
-              className="reveal-on-scroll space-y-8"
-            >
-              <div className="w-16 h-px bg-[#c9a962]" />
-              <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">
-                Our Signature Approach
-              </p>
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
-                Crafted for emotion,
-                <br />
-                delivered with precision.
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
-                Every experience is designed to connect your message with your audience, combining bold creativity, seamless logistics, and unforgettable detail.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  'Purpose-led concepts',
-                  'Immersive production',
-                  'Global expertise',
-                  'Meaningful outcomes',
-                ].map((item) => (
-                  <div key={item} className="rounded-sm border border-gray-200 p-6">
-                    <p className="text-sm text-[#c9a962] uppercase tracking-[0.35em] mb-3">{item}</p>
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {item === 'Purpose-led concepts'
-                        ? 'We start with a powerful idea that reflects your goals and your audience.'
-                        : item === 'Immersive production'
-                        ? 'Every detail is choreographed to create memorable, high-impact moments.'
-                        : item === 'Global expertise'
-                        ? 'Our team delivers exceptional events across continents and cultures.'
-                        : 'The result is an experience that feels personal, polished, and purposeful.'}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8 }}
-              className="reveal-on-scroll grid grid-cols-2 gap-4"
-            >
-              {['4.jpeg', '5.jpeg', '6.jpeg', '7.jpeg'].map((name, index) => (
-                <div key={name} className="overflow-hidden rounded-sm bg-gray-100">
-                  <img
-                    src={`/images/${name}`}
-                    alt={`Event highlight ${index + 1}`}
-                    className="w-full h-48 object-cover"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Gallery */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1.3fr_0.95fr] items-center">
-            <div className="grid grid-cols-2 gap-4">
-              {['10.jpg', '11.jpg', '12.jpg', '12-1.jpg', '13.jpg', '13-1.jpg'].map((name) => (
-                <div key={name} className="overflow-hidden rounded-xl bg-gray-100 shadow-sm">
-                  <img
-                    src={`/images/${name}`}
-                    alt={`Event storytelling ${name}`}
-                    className="w-full h-56 object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="space-y-8">
-              <div className="w-16 h-px bg-[#c9a962]" />
-              <p className="text-[#c9a962] uppercase tracking-[0.35em] text-sm">Visual Storytelling</p>
-              <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] leading-tight">
-                A premium showcase of immersive design, cinematic staging, and unforgettable moments.
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
-                These images highlight our ability to craft a strong visual narrative for every event, using elegant lighting, refined materials, and polished guest experiences.
-              </p>
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="rounded-3xl border border-gray-200 p-6">
-                  <h3 className="font-semibold text-xl text-[#0a1628] mb-3">Cinematic Atmosphere</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    We design every scene to look striking in person and on camera, amplifying your brand story with a premium visual voice.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-gray-200 p-6">
-                  <h3 className="font-semibold text-xl text-[#0a1628] mb-3">Curated Details</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    From grand gestures to subtle touches, each element is selected to create cohesion, confidence, and a memorable guest journey.
-                  </p>
-                </div>
-                <div className="sm:col-span-2 rounded-3xl border border-gray-200 p-6">
-                  <h3 className="font-semibold text-xl text-[#0a1628] mb-3">Story-first Execution</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Our visual storytelling blends strategy with artistry so every moment reinforces your message and leaves a lasting impression.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Projects */}
-      <section className="py-24 lg:py-32 bg-[#f8f9fa]">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 lg:mb-24"
+      {/* Unique Scroll Reveal Text Section */}
+      <section
+        ref={textSectionRef}
+        className="relative py-28 lg:py-40 bg-white text-[#06369c]"
+      >
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-12">
+          {/* Headline Word-by-Word Scroll Reveal */}
+          <motion.h1
+            variants={headlineContainerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.2] text-[#06369c] tracking-tight flex flex-wrap justify-center gap-x-[0.3em] gap-y-2"
           >
-            <div className="w-16 h-px bg-[#c9a962] mx-auto mb-8" />
-            <h2 className="font-serif text-4xl lg:text-5xl font-medium text-[#0a1628] mb-6">
-              Curated Excellence
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              A glimpse into our portfolio of transformative experiences
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="reveal-on-scroll group cursor-pointer"
-              >
-                <Link to="/portfolio">
-                  <div className="image-zoom-container relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-[400px] object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/90 via-[#0a1628]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="text-[#c9a962] text-sm tracking-widest uppercase mb-2">
-                        {project.category}
-                      </p>
-                      <h3 className="font-serif text-2xl text-white">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+            {words.map((word, index) => (
+              <span key={index} className="inline-block overflow-hidden py-1">
+                <motion.span
+                  variants={headlineWordVariants}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
-          </div>
+          </motion.h1>
 
+          {/* Decorative Animated Line Accent */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
-            className="text-center mt-16"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={isInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
+            className="w-24 h-[2px] bg-[#06369c] mx-auto origin-center rounded-full"
+          />
+
+          {/* Paragraph 1 Word-by-Word Scroll Reveal */}
+          <motion.p
+            variants={p1ContainerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="text-[#06369c]/85 text-lg sm:text-xl lg:text-2xl leading-relaxed font-light flex flex-wrap justify-center gap-x-[0.25em] gap-y-1"
           >
-            <Link
-              to="/portfolio"
-              className="btn-luxury inline-flex items-center gap-3 bg-[#0a1628] hover:bg-[#152238] text-white px-8 lg:px-10 py-4 text-sm tracking-widest uppercase font-medium"
-            >
-              View Full Portfolio
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
+            {paragraph1Words.map((word, index) => (
+              <span key={index} className="inline-block overflow-hidden py-0.5">
+                <motion.span
+                  variants={bodyWordVariants}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </motion.p>
+
+          {/* Paragraph 2 Word-by-Word Scroll Reveal */}
+          <motion.p
+            variants={p2ContainerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="text-[#06369c]/85 text-lg sm:text-xl lg:text-2xl leading-relaxed font-light flex flex-wrap justify-center gap-x-[0.25em] gap-y-1"
+          >
+            {paragraph2Words.map((word, index) => (
+              <span key={index} className="inline-block overflow-hidden py-0.5">
+                <motion.span
+                  variants={bodyWordVariants}
+                  className="inline-block"
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </motion.p>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-[#0a1628] relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: 'url(/images/3.jpeg)' }}
-        />
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
-            <Star className="w-10 h-10 text-[#c9a962] mx-auto" />
-            <h2 className="font-serif text-4xl lg:text-6xl font-medium text-white leading-tight">
-              Ready to Create
-              <br />
-              <span className="text-[#c9a962]">Something Extraordinary?</span>
-            </h2>
-            <p className="text-white/70 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-              Let's discuss how we can bring your vision to life with precision, 
-              creativity, and unmatched expertise.
-            </p>
-            <Link
-              to="/contact"
-              className="btn-luxury inline-flex items-center gap-3 bg-[#c9a962] hover:bg-[#d4b978] text-[#0a1628] px-10 lg:px-12 py-5 text-sm tracking-widest uppercase font-medium"
-            >
-              Begin Your Journey
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      {/* Reusable Architectural Editorial Contact Section */}
+      <GlobalContactSection />
     </main>
   );
 }
