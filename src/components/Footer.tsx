@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-white text-[#06369c] py-12 px-6 sm:px-10 lg:px-16 font-sans">
       <div className="max-w-screen-2xl 2xl:max-w-[1600px] 3xl:max-w-[1920px] mx-auto space-y-10">
-        
+
         {/* Top Header Row: NAVIGATE (Left) and INQUIRES (Right) */}
         <div className="flex flex-col sm:flex-row justify-between items-start gap-6">
           {/* NAVIGATE Links */}
@@ -17,6 +17,7 @@ export default function Footer() {
             <nav className="flex flex-col space-y-1 text-xs sm:text-sm font-medium text-[#06369c]">
               <Link to="/" className="hover:opacity-75 transition-opacity">Home</Link>
               <Link to="/about" className="hover:opacity-75 transition-opacity">About</Link>
+              <Link to="/services" className="hover:opacity-75 transition-opacity">Services</Link>
               <Link to="/portfolio" className="hover:opacity-75 transition-opacity">Portfolio</Link>
               <Link to="/contact" className="hover:opacity-75 transition-opacity">Get in Touch</Link>
             </nav>
@@ -31,9 +32,7 @@ export default function Footer() {
               <a href="mailto:info@renaissanceevents.com" className="hover:opacity-75 transition-opacity">
                 info@renaissanceevents.com
               </a>
-              <a href="mailto:info@specialeventschannel.com" className="hover:opacity-75 transition-opacity">
-                info@specialeventschannel.com
-              </a>
+
             </div>
           </div>
         </div>
@@ -47,7 +46,7 @@ export default function Footer() {
                 RENAISSANCE
               </h1>
             </div>
-            
+
             {/* Middle Line Framing subtext & Bottom Line */}
             <div className="border-t border-b border-[#06369c]/30 py-4 space-y-1">
               <p className="font-serif text-[11px] sm:text-xs md:text-sm tracking-[0.4em] uppercase text-[#06369c]">

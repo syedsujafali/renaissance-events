@@ -84,9 +84,7 @@ export default function Portfolio() {
           transition={{ duration: 0.7 }}
           className="relative z-10 text-center px-6 max-w-4xl mx-auto"
         >
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-[#06369c]">
-            PORTFOLIO
-          </h1>
+
         </motion.div>
       </section>
 

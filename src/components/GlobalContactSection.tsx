@@ -115,7 +115,7 @@ export default function GlobalContactSection() {
                   TELL US ABOUT
                 </motion.span>
                 <motion.span variants={titleLineVariants} className="block origin-bottom-left">
-                  YOUR NEXT ROOM.
+                  YOUR NEXT ROOM
                 </motion.span>
               </h2>
             </motion.div>
@@ -135,12 +135,7 @@ export default function GlobalContactSection() {
               >
                 info@renaissanceevents.com
               </a>
-              <a
-                href="mailto:info@specialeventschannel.com"
-                className="block font-sans font-bold text-xl lg:text-2xl text-white hover:text-white/80 transition-colors"
-              >
-                info@specialeventschannel.com
-              </a>
+
             </motion.div>
           </div>
 
