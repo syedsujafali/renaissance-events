@@ -97,19 +97,37 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#06369c]"
+        className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
       >
         {/* Background Video with Parallax */}
         <motion.div
           style={{ y: heroY, scale: heroScale, opacity: heroDim }}
-          className="absolute inset-0"
+          className="absolute inset-0 bg-black overflow-hidden"
         >
+          {/* Instant Background Poster (shows immediately during initial page load/redirect before video playback) */}
+          <img
+            src="/images/hero-poster-desktop.jpg"
+            alt="Renaissance Events"
+            className="absolute inset-0 w-full h-full object-cover hidden md:block"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <img
+            src="/images/mobile-poster.jpg"
+            alt="Renaissance Events"
+            className="absolute inset-0 w-full h-full object-cover md:hidden"
+            loading="eager"
+            fetchPriority="high"
+          />
+
           {/* Mobile Video */}
           <video
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
+            poster="/images/mobile-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover md:hidden"
           >
             <source src="/images/mobile.mp4" type="video/mp4" />
@@ -121,9 +139,11 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="auto"
+            poster="/images/hero-poster-desktop.jpg"
             className="absolute inset-0 w-full h-full object-cover hidden md:block"
           >
-            <source src="/images/renaissance.mp4" type="video/mp4" />
+            <source src="/images/hero video new/hero video new.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </motion.div>

@@ -46,23 +46,18 @@ export default function Header() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         showNav || isMobileMenuOpen
-          ? 'h-24 sm:h-28 lg:h-32 bg-[#06369c]/95 backdrop-blur-2xl shadow-2xl border-b border-white/10'
-          : 'h-28 sm:h-36 lg:h-44 bg-transparent border-b border-transparent shadow-none'
+          ? 'h-28 sm:h-34 lg:h-42 bg-[#06369c]/95 backdrop-blur-2xl shadow-2xl border-b border-white/10'
+          : 'h-32 sm:h-40 lg:h-48 bg-transparent border-b border-transparent shadow-none'
       )}
     >
       <div className="max-w-screen-2xl 2xl:max-w-[1600px] 3xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 h-full">
         <div className="flex items-center justify-between h-full px-0">
           {/* Logo */}
-          <Link to="/" className="group flex items-center py-2 shrink-0">
+          <Link to="/" className="group flex items-center py-1 shrink-0">
             <img
               src="/images/logo.png"
               alt="Renaissance logo"
-              className={cn(
-                'w-auto object-contain transition-all duration-500 filter drop-shadow-xl',
-                showNav || isMobileMenuOpen
-                  ? 'h-18 sm:h-24 lg:h-30 max-w-[280px] sm:max-w-[400px] lg:max-w-[500px]'
-                  : 'h-14 sm:h-18 lg:h-22 max-w-[180px] sm:max-w-[240px] lg:max-w-[300px]'
-              )}
+              className="h-22 sm:h-28 lg:h-36 max-w-[320px] sm:max-w-[440px] lg:max-w-[560px] w-auto object-contain transition-all duration-500 filter drop-shadow-xl"
             />
           </Link>
 

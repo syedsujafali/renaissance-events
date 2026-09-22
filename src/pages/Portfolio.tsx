@@ -25,20 +25,20 @@ export default function Portfolio() {
 
   const projects = [
     {
-      id: 2,
-      title: '97th Annual Convention Stage',
-      category: 'Convention & Production',
-      location: 'Memphis, TN',
-      image: '/images/portfolio-2.jpg',
-      description: 'Broadcast-quality stage design, red drape backdrops, and technical direction for the National Bar Association.',
+      id: 8,
+      title: 'Luxe Banquet & Dining Room',
+      category: 'Galas & Dinners',
+      location: 'Executive Suite',
+      image: '/images/portfolio-8.jpg',
+      description: 'Curated floral arrangements, gold drapery, and high-end dining ambiance.',
     },
     {
-      id: 5,
-      title: 'Corporate Leadership Forum',
-      category: 'Corporate Summit',
-      location: 'Grand Conference Center',
-      image: '/images/portfolio-5.jpg',
-      description: 'Full-service conference staging, boardroom layout, and AV integration under crystal chandeliers.',
+      id: 9,
+      title: 'Boardroom Staging & Conference Setup',
+      category: 'Executive Meetings',
+      location: 'Corporate HQ',
+      image: '/images/portfolio-9.jpg',
+      description: 'Custom U-shaped boardroom conference table configuration under grand chandelier lighting.',
     },
     {
       id: 6,
@@ -57,27 +57,27 @@ export default function Portfolio() {
       description: 'Dual projection staging, round table banquet setup, and warm ambient lighting for the 2023 Annual Gala.',
     },
     {
-      id: 8,
-      title: 'Luxe Banquet & Dining Room',
-      category: 'Galas & Dinners',
-      location: 'Executive Suite',
-      image: '/images/portfolio-8.jpg',
-      description: 'Curated floral arrangements, gold drapery, and high-end dining ambiance.',
+      id: 2,
+      title: 'National Bar Association Plenary Assembly',
+      category: 'Convention & Plenary Production',
+      location: 'Grand Ballroom Plenary Hall',
+      image: '/images/Event Planning & Production.jpeg',
+      description: 'Comprehensive plenary hall production featuring an 8-seat executive panel stage, custom sheer drapery with warm amber lighting, dual projection displays, and full theater seating.',
     },
     {
-      id: 9,
-      title: 'Boardroom Staging & Conference Setup',
-      category: 'Executive Meetings',
-      location: 'Corporate HQ',
-      image: '/images/portfolio-9.jpg',
-      description: 'Custom U-shaped boardroom conference table configuration under grand chandelier lighting.',
+      id: 5,
+      title: 'Almanac Realty Investors Annual Meeting & Gala',
+      category: 'Corporate Summit & Dinner',
+      location: 'Executive Dining & Conference Ballroom',
+      image: '/images/Large-Scale Events.jpeg',
+      description: 'High-profile investor conference and dinner gala featuring wide-format keynote AV, executive speaker lectern, candlelit banquet rounds with custom florals, and fine table service.',
     },
   ];
 
   return (
     <main className="overflow-hidden bg-white text-[#06369c] min-h-screen">
       {/* Simple Header */}
-      <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 bg-white">
+      <section className="relative pt-44 pb-12 sm:pt-52 lg:pt-60 lg:pb-16 bg-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -125,6 +125,10 @@ export default function Portfolio() {
 
                   <p className="mt-1.5 text-xs sm:text-sm uppercase tracking-wider font-semibold text-[#06369c]/70">
                     {project.category}
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#06369c]/80 leading-relaxed font-sans">
+                    {project.description}
                   </p>
                 </motion.div>
               );

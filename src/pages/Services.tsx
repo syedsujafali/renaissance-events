@@ -39,7 +39,7 @@ export default function Services() {
         'Event Technology Integration',
         'Risk Management & Contingency Planning',
       ],
-      image: '/images/service-stage.jpg',
+      image: '/images/Event Planning & Production.jpeg',
     },
     {
       icon: Building2,
@@ -87,7 +87,7 @@ export default function Services() {
         'Live Streaming & Hybrid Events',
         'Global Event Coordination',
       ],
-      image: '/images/service-ballroom.jpg',
+      image: '/images/Large-Scale Events.jpeg',
     },
   ];
 
@@ -100,7 +100,7 @@ export default function Services() {
           <section
             key={service.title}
             className={`relative bg-white text-[#06369c] ${isFirst
-              ? 'pt-32 pb-24 lg:pt-40 lg:pb-32'
+              ? 'pt-44 pb-24 sm:pt-52 lg:pt-60 lg:pb-32'
               : 'py-24 lg:py-32'
               }`}
           >

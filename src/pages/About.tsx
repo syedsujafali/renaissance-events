@@ -10,7 +10,7 @@ export default function About() {
       <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-white/5 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Main Editorial Showcase Section */}
-      <section className="relative pt-36 pb-36 lg:pt-48 lg:pb-44 bg-[#06369c]">
+      <section className="relative pt-44 pb-36 sm:pt-52 lg:pt-60 lg:pb-44 bg-[#06369c]">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           <div className="space-y-10 lg:space-y-12">
