@@ -115,7 +115,7 @@ export default function GlobalContactSection() {
                   TELL US ABOUT
                 </motion.span>
                 <motion.span variants={titleLineVariants} className="block origin-bottom-left">
-                  YOUR NEXT ROOM
+                  YOUR NEXT EVENT
                 </motion.span>
               </h2>
             </motion.div>
@@ -138,112 +138,6 @@ export default function GlobalContactSection() {
 
             </motion.div>
           </div>
-
-          {/* Right Column: Card Form */}
-          <motion.div
-            variants={formVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="lg:col-span-5 pt-4 lg:pt-0"
-          >
-            <div className="bg-[#06369c] border border-white/20 rounded-3xl p-10 sm:p-14 shadow-2xl backdrop-blur-sm min-h-[560px] flex flex-col justify-between">
-              <form onSubmit={handleSubmit} className="space-y-10 font-sans h-full flex flex-col justify-between">
-                <div className="space-y-10">
-                  {/* Name & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label htmlFor="name" className="block text-xs uppercase tracking-widest text-white/90 font-bold">
-                        NAME
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="Your full name"
-                        className="w-full bg-transparent border-b border-white/40 text-white placeholder:text-white/40 focus:border-white focus:outline-none pb-3 text-base font-normal transition-colors"
-                      />
-                    </div>
-
-                    <div className="space-y-3">
-                      <label htmlFor="email" className="block text-xs uppercase tracking-widest text-white/90 font-bold">
-                        EMAIL
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="you@company.com"
-                        className="w-full bg-transparent border-b border-white/40 text-white placeholder:text-white/40 focus:border-white focus:outline-none pb-3 text-base font-normal transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Company / Organization */}
-                  <div className="space-y-3">
-                    <label htmlFor="company" className="block text-xs uppercase tracking-widest text-white/90 font-bold">
-                      COMPANY / ORGANIZATION
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="Optional"
-                      className="w-full bg-transparent border-b border-white/40 text-white placeholder:text-white/40 focus:border-white focus:outline-none pb-3 text-base font-normal transition-colors"
-                    />
-                  </div>
-
-                  {/* How Can We Help */}
-                  <div className="space-y-3">
-                    <label htmlFor="message" className="block text-xs uppercase tracking-widest text-white/90 font-bold">
-                      HOW CAN WE HELP?
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Tell us about your event, timeline, and aspirations..."
-                      className="w-full bg-transparent border-b border-white/40 text-white placeholder:text-white/40 focus:border-white focus:outline-none pb-3 text-base font-normal resize-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                {/* Submit Row */}
-                <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                  <p className="text-white/70 text-[11px] max-w-[220px] leading-relaxed font-sans">
-                    By submitting, you agree to be contacted regarding your inquiry. We respect your privacy.
-                  </p>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto px-9 py-4 border-2 border-white rounded-full bg-transparent text-white hover:bg-white hover:text-[#06369c] text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer shrink-0 group"
-                  >
-                    <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>
-                    <ArrowRight className="w-4 h-4 text-white group-hover:text-[#06369c] transition-colors" />
-                  </button>
-                </div>
-
-                {submitSuccess && (
-                  <div className="p-4 bg-white/10 border border-white/20 text-white rounded-xl flex items-center gap-3 text-sm font-sans font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                    <span>Thank you. Your message has been sent successfully.</span>
-                  </div>
-                )}
-              </form>
-            </div>
-          </motion.div>
-
         </div>
       </div>
     </section>

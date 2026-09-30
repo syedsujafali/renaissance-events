@@ -3,22 +3,22 @@ import { motion } from 'framer-motion';
 import { Sparkles, Camera, Compass } from 'lucide-react';
 
 const galleryImages = [
-  '9-new.jpg',
-  '10.jpg',
-  '10-1.jpg',
-  '11.jpg',
-  '11-1.jpg',
-  '12.jpg',
-  '12-1.jpg',
-  '12-2.jpg',
-  '13.jpg',
-  '13-1.jpg',
-  '14.jpg',
-  '15.jpg',
-  '15-1.jpg',
-  '16.jpg',
-  '17.jpg',
-  '17-1.jpg',
+  { file: 'clemente.png', title: 'Roberto Clemente Foundation Gala Ballroom' },
+  { file: 'clemente-marquee.png', title: '50th Anniversary Marquee Activation' },
+  { file: 'nba3.jpeg', title: 'NBA 97th Annual Convention Stage' },
+  { file: 'almanac1.jpeg', title: 'Almanac Realty Investors Plenary' },
+  { file: 'clemente1.jpeg', title: 'Clemente Foundation Keynote Address' },
+  { file: 'nba2.jpeg', title: 'NBA Convention & Exhibits Entrance' },
+  { file: 'clemente2.jpeg', title: 'Gala VIP Banquet Table Setting' },
+  { file: 'clemente3.jpeg', title: 'Gala Stage & Dais Production' },
+  { file: 'nba1.jpeg', title: 'NBA Executive Head Table' },
+  { file: 'nba4.jpeg', title: 'Luxe Confectionery & Dessert Bar' },
+  { file: 'nba5.jpeg', title: 'Lordina Foundation Plated Dessert' },
+  { file: 'almanac.jpeg', title: 'Almanac Investor Hospitality Suite' },
+  { file: 'a.jpeg', title: 'VIP Silent Auction Showcase' },
+  { file: 'b.jpeg', title: 'Historic Ballroom Dining & Dais' },
+  { file: 'c.jpeg', title: 'Judicial Friends Step & Repeat' },
+  { file: 'd.jpeg', title: 'Executive Registration Concourse' },
 ];
 
 export default function Gallery() {
@@ -27,7 +27,7 @@ export default function Gallery() {
       <section className="relative h-[70vh] min-h-[450px] flex items-center justify-center overflow-hidden bg-[#06369c]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: 'url(/images/10-1.jpg)' }}
+          style={{ backgroundImage: 'url(/images/clemente.png)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#06369c]/70 via-[#06369c]/50 to-[#06369c]" />
 
@@ -112,18 +112,21 @@ export default function Gallery() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {galleryImages.map((image) => (
               <motion.div
-                key={image}
+                key={image.file}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6 }}
-                className="reveal-on-scroll image-zoom-container overflow-hidden rounded-sm bg-white/10 border border-white/20 shadow-sm"
+                className="reveal-on-scroll image-zoom-container overflow-hidden rounded-sm bg-white/10 border border-white/20 shadow-sm group relative"
               >
                 <img
-                  src={`/images/${image}`}
-                  alt={`Gallery image ${image}`}
-                  className="w-full h-72 object-cover"
+                  src={`/images/${image.file}`}
+                  alt={image.title}
+                  className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-xs tracking-wider uppercase font-medium line-clamp-1">{image.title}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -134,7 +137,7 @@ export default function Gallery() {
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/17.jpg)' }}
+            style={{ backgroundImage: 'url(/images/nba3.jpeg)' }}
           />
         </div>
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10 text-center">

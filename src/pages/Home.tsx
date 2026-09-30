@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import SectionWave from '../components/SectionWave';
 import GlobalContactSection from '../components/GlobalContactSection';
 
 export default function Home() {
@@ -106,16 +105,9 @@ export default function Home() {
         >
           {/* Instant Background Poster (shows immediately during initial page load/redirect before video playback) */}
           <img
-            src="/images/hero-poster-desktop.jpg"
+            src="/0911/0911-Cover.jpg"
             alt="Renaissance Events"
-            className="absolute inset-0 w-full h-full object-cover hidden md:block"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <img
-            src="/images/mobile-poster.jpg"
-            alt="Renaissance Events"
-            className="absolute inset-0 w-full h-full object-cover md:hidden"
+            className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
           />
@@ -127,10 +119,10 @@ export default function Home() {
             muted
             playsInline
             preload="auto"
-            poster="/images/mobile-poster.jpg"
+            poster="/0911/0911-Cover.jpg"
             className="absolute inset-0 w-full h-full object-cover md:hidden"
           >
-            <source src="/images/mobile.mp4" type="video/mp4" />
+            <source src="/0911/0911.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           {/* Desktop/Tablet Video */}
@@ -140,10 +132,10 @@ export default function Home() {
             muted
             playsInline
             preload="auto"
-            poster="/images/hero-poster-desktop.jpg"
+            poster="/0911/0911-Cover.jpg"
             className="absolute inset-0 w-full h-full object-cover hidden md:block"
           >
-            <source src="/images/hero video new/hero video new.mp4" type="video/mp4" />
+            <source src="/0911/0911.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </motion.div>
@@ -174,11 +166,6 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.button>
-
-        {/* Hero Wave Transition to White */}
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <SectionWave position="bottom" fillColor="text-white" />
-        </div>
       </section>
 
       {/* Unique Scroll Reveal Text Section */}

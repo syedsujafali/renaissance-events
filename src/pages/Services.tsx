@@ -39,7 +39,7 @@ export default function Services() {
         'Event Technology Integration',
         'Risk Management & Contingency Planning',
       ],
-      image: '/images/Event Planning & Production.jpeg',
+      image: '/images/clemente.png',
     },
     {
       icon: Building2,
@@ -55,7 +55,7 @@ export default function Services() {
         'Incentive Travel Programs',
         'Corporate Social Responsibility Events',
       ],
-      image: '/images/service-dining.jpg',
+      image: '/images/almanac1.jpeg',
     },
     {
       icon: Megaphone,
@@ -71,7 +71,7 @@ export default function Services() {
         'Immersive Brand Installations',
         'Consumer Engagement Activations',
       ],
-      image: '/images/service-boardroom.jpg',
+      image: '/images/clemente-marquee.png',
     },
     {
       icon: Users,
@@ -87,7 +87,7 @@ export default function Services() {
         'Live Streaming & Hybrid Events',
         'Global Event Coordination',
       ],
-      image: '/images/Large-Scale Events.jpeg',
+      image: '/images/nba2.jpeg',
     },
   ];
 
