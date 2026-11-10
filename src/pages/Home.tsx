@@ -1,12 +1,45 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import GlobalContactSection from '../components/GlobalContactSection';
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const textSectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(textSectionRef, { once: false, margin: '-10% 0px -10% 0px' });
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.defaultMuted = true;
+      video.muted = true;
+      const playVideo = () => {
+        const promise = video.play();
+        if (promise !== undefined) {
+          promise.catch(() => {
+            const handleFirstInteraction = () => {
+              video.play().catch(() => {});
+              window.removeEventListener('click', handleFirstInteraction);
+              window.removeEventListener('touchstart', handleFirstInteraction);
+              window.removeEventListener('scroll', handleFirstInteraction);
+            };
+            window.addEventListener('click', handleFirstInteraction, { once: true });
+            window.addEventListener('touchstart', handleFirstInteraction, { once: true });
+            window.addEventListener('scroll', handleFirstInteraction, { once: true });
+          });
+        }
+      };
+
+      if (video.readyState >= 2) {
+        playVideo();
+      } else {
+        video.addEventListener('loadeddata', playVideo, { once: true });
+        playVideo();
+      }
+    }
+  }, []);
 
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 600], [0, 180]);
@@ -103,41 +136,32 @@ export default function Home() {
           style={{ y: heroY, scale: heroScale, opacity: heroDim }}
           className="absolute inset-0 bg-black overflow-hidden"
         >
-          {/* Instant Background Poster (shows immediately during initial page load/redirect before video playback) */}
+          {/* Video Player */}
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/0911/0911-Cover.jpg"
+            onPlaying={() => setIsVideoPlaying(true)}
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/0911/0911.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Instant Background Poster (smoothly crossfades out once video is playing) */}
           <img
             src="/0911/0911-Cover.jpg"
             alt="Renaissance Events"
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 pointer-events-none ${
+              isVideoPlaying ? 'opacity-0' : 'opacity-100'
+            }`}
             loading="eager"
             fetchPriority="high"
           />
-
-          {/* Mobile Video */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/0911/0911-Cover.jpg"
-            className="absolute inset-0 w-full h-full object-cover md:hidden"
-          >
-            <source src="/0911/0911.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {/* Desktop/Tablet Video */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/0911/0911-Cover.jpg"
-            className="absolute inset-0 w-full h-full object-cover hidden md:block"
-          >
-            <source src="/0911/0911.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
         </motion.div>
 
         {/* Scroll Button */}
