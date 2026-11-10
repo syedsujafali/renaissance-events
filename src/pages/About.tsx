@@ -12,9 +12,9 @@ export default function About() {
       {/* Main Editorial Showcase Section */}
       <section className="relative pt-44 pb-36 sm:pt-52 lg:pt-60 lg:pb-44 bg-[#06369c]">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-          
+
           <div className="space-y-10 lg:space-y-12">
-            
+
             {/* Top Pill Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -27,19 +27,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Luxury Editorial Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="font-cormorant font-bold uppercase text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[0.98] text-white"
-            >
-              THREE DECADES OF
-              <br />
-              EXTRAORDINARY
-              <br />
-              MOMENTS.
-            </motion.h1>
+
 
             {/* Elegant Horizontal Divider Line */}
             <motion.div
@@ -57,10 +45,10 @@ export default function About() {
               className="space-y-5 max-w-4xl text-white/90 text-lg sm:text-xl lg:text-2xl leading-relaxed font-light pl-6 border-l-2 border-white/30"
             >
               <p>
-                For three decades, Renaissance Meetings & Special Events has been a trusted partner for global brands, Fortune 500 companies, associations, Sports, non-profits, and visionary leaders seeking to create moments that transcend the ordinary.
+                Created in 1991, Renaissance Meetings and Special Events is a full-service event management and marketing firm specializing in meetings, conferences, special events, fundraising and sponsorship creating the ‘brand experience’ for our clients.
               </p>
               <p className="text-white/85 text-base sm:text-lg lg:text-xl pt-1">
-                From intimate executive gatherings to large-scale productions reaching thousands, we bring expertise, creativity, and precision to every event.
+                Whether you are launching a new product, hosting a large-scale event or seeking sponsors for your next event, our expertise will guide you every step of the way.
               </p>
             </motion.div>
 

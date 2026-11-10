@@ -43,9 +43,9 @@ export default function Services() {
     },
     {
       icon: Building2,
-      title: 'Corporate Events',
+      title: 'Association, Corporate and Non-Profit Events',
       description:
-        'Transform corporate gatherings into memorable experiences. From executive retreats to company-wide celebrations, we create environments that inspire and engage.',
+        'Transform gatherings into memorable experiences. From executive retreats to company-wide celebrations, we create environments that inspire and engage.',
       features: [
         'Executive Summits & Retreats',
         'Annual Meetings & Conferences',
@@ -63,15 +63,16 @@ export default function Services() {
       description:
         'Bring your brand to life through immersive experiences. We create interactive environments that forge emotional connections and drive meaningful engagement.',
       features: [
-        'Experiential Marketing Campaigns',
-        'Pop-Up Experiences & Installations',
-        'Product Demonstrations & Launches',
-        'Influencer & Media Events',
-        'Brand Storytelling Experiences',
-        'Immersive Brand Installations',
-        'Consumer Engagement Activations',
+        'Research and Strategy ',
+        'Pricing and Packages',
+        'Sponsor Booths and Fulfillment',
+        'Exhibit Sales and Contract Negotiations',
+        'Booth Assignments',
+        'Working with General Services Contractor for Floor Plan',
+        'On-Site Set-up and Execution (Load-In, Load-Out)',
+        'Post-Event Evaluations',
       ],
-      image: '/images/clemente-marquee.png',
+      image: '/images/nba2.jpeg',
     },
     {
       icon: Users,
@@ -79,15 +80,15 @@ export default function Services() {
       description:
         'Orchestrate complex productions with thousands of attendees. Our expertise in logistics and crowd management ensures flawless execution at any scale.',
       features: [
-        'Conferences & Conventions (1000+)',
-        'Music Festivals & Concerts',
+        'Conferences & Conventions (2000+)',
         'Sporting Events & Competitions',
+        'Receptions & After-Parties',
         'Public Celebrations & Ceremonies',
-        'Multi-Venue Productions',
-        'Live Streaming & Hybrid Events',
+        'Multi-Venue Events',
         'Global Event Coordination',
+        'Vendor Management (AV, Ground Transportation) and more',
       ],
-      image: '/images/nba2.jpeg',
+      image: '/images/nba3.jpeg',
     },
   ];
 

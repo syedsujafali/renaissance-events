@@ -35,7 +35,7 @@ export default function Header() {
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
     { to: '/services', label: 'Services' },
-    { to: '/portfolio', label: 'Portfolio' },
+
   ];
 
   const isHomePage = location.pathname === '/';
