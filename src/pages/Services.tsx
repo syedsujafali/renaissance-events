@@ -59,7 +59,7 @@ export default function Services() {
     },
     {
       icon: Megaphone,
-      title: 'Brand Activations',
+      title: 'Exhibitions and Sponsorships',
       description:
         'Bring your brand to life through immersive experiences. We create interactive environments that forge emotional connections and drive meaningful engagement.',
       features: [
