@@ -9,13 +9,13 @@ export default function Home() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const textSectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(textSectionRef, { once: false, margin: '-10% 0px -10% 0px' });
+  const isInView = useInView(textSectionRef, { once: true, amount: 0.15 });
 
   const togglePlayPause = () => {
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      video.play().then(() => setIsPaused(false)).catch(() => {});
+      video.play().then(() => setIsPaused(false)).catch(() => { });
     } else {
       video.pause();
       setIsPaused(true);
@@ -32,7 +32,7 @@ export default function Home() {
         if (promise !== undefined) {
           promise.catch(() => {
             const handleFirstInteraction = () => {
-              video.play().catch(() => {});
+              video.play().catch(() => { });
               window.removeEventListener('click', handleFirstInteraction);
               window.removeEventListener('touchstart', handleFirstInteraction);
               window.removeEventListener('scroll', handleFirstInteraction);
@@ -58,13 +58,13 @@ export default function Home() {
   const heroScale = useTransform(scrollY, [0, 600], [1, 1.15]);
   const heroDim = useTransform(scrollY, [0, 600], [1, 0.7]);
 
-  const headlineText = "ABOUT US";
+  const headlineText = "Who We Are";
   const words = headlineText.split(" ");
 
-  const paragraph1Text = "Created in 1991, Renaissance Meetings and Special Events is a full-service event management and marketing firm specializing in meetings, conferences, special events, fundraising and sponsorship creating the ‘brand experience’ for our clients.";
+  const paragraph1Text = "With over 30 years of experience, Renaissance Meetings & Special Events is a full-service event management and marketing firm creating memorable brand experiences. From conferences and special events to fundraising and sponsorships, we combine creativity, strategy, and expertise to deliver unique experiences that connect people, elevate brands, and bring our client's visions to life.";
   const paragraph1Words = paragraph1Text.split(" ");
 
-  const paragraph2Text = "Whether you are launching a new product, hosting a large-scale event or seeking sponsors for your next event, our expertise will guide you every step of the way.";
+  const paragraph2Text = "";
   const paragraph2Words = paragraph2Text.split(" ");
 
   // Framer Motion Animation Variants
@@ -84,8 +84,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.025,
-        delayChildren: 0.45,
+        staggerChildren: 0.012,
+        delayChildren: 0.2,
       },
     },
   };
@@ -173,9 +173,8 @@ export default function Home() {
           <img
             src="/0911/0911-Cover.jpg"
             alt="Renaissance Events"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 pointer-events-none ${
-              isVideoPlaying ? 'opacity-0' : 'opacity-100'
-            }`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 pointer-events-none ${isVideoPlaying ? 'opacity-0' : 'opacity-100'
+              }`}
             loading="eager"
             fetchPriority="high"
           />
@@ -235,7 +234,7 @@ export default function Home() {
       {/* Unique Scroll Reveal Text Section */}
       <section
         ref={textSectionRef}
-        className="relative py-28 lg:py-40 bg-white text-[#06369c]"
+        className="relative py-12 sm:py-14 lg:py-16 bg-white text-[#06369c]"
       >
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-12">
           {/* Headline Word-by-Word Scroll Reveal */}
@@ -270,7 +269,7 @@ export default function Home() {
             variants={p1ContainerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#06369c]/85 text-lg sm:text-xl lg:text-2xl leading-relaxed font-light flex flex-wrap justify-center gap-x-[0.25em] gap-y-1"
+            className="text-[#06369c] text-lg sm:text-xl lg:text-2xl leading-relaxed font-medium flex flex-wrap justify-center gap-x-[0.25em] gap-y-1.5"
           >
             {paragraph1Words.map((word, index) => (
               <span key={index} className="inline-block overflow-hidden py-0.5">
@@ -285,23 +284,25 @@ export default function Home() {
           </motion.p>
 
           {/* Paragraph 2 Word-by-Word Scroll Reveal */}
-          <motion.p
-            variants={p2ContainerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="text-[#06369c]/85 text-lg sm:text-xl lg:text-2xl leading-relaxed font-light flex flex-wrap justify-center gap-x-[0.25em] gap-y-1"
-          >
-            {paragraph2Words.map((word, index) => (
-              <span key={index} className="inline-block overflow-hidden py-0.5">
-                <motion.span
-                  variants={bodyWordVariants}
-                  className="inline-block"
-                >
-                  {word}
-                </motion.span>
-              </span>
-            ))}
-          </motion.p>
+          {paragraph2Text.trim().length > 0 && (
+            <motion.p
+              variants={p2ContainerVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="text-[#06369c] text-lg sm:text-xl lg:text-2xl leading-relaxed font-medium flex flex-wrap justify-center gap-x-[0.25em] gap-y-1.5"
+            >
+              {paragraph2Words.map((word, index) => (
+                <span key={index} className="inline-block overflow-hidden py-0.5">
+                  <motion.span
+                    variants={bodyWordVariants}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+            </motion.p>
+          )}
         </div>
       </section>
 

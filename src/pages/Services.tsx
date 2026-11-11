@@ -68,7 +68,7 @@ export default function Services() {
         'Sponsor Booths and Fulfillment',
         'Exhibit Sales and Contract Negotiations',
         'Booth Assignments',
-        'Working with General Services Contractor for Floor Plan',
+        'General Services Contractor and Floor Plan Layout ',
         'On-Site Set-up and Execution (Load-In, Load-Out)',
         'Post-Event Evaluations',
       ],
@@ -88,7 +88,7 @@ export default function Services() {
         'Global Event Coordination',
         'Vendor Management (AV, Ground Transportation) and more',
       ],
-      image: '/images/nba3.jpeg',
+      image: '/images/NBA new.jpeg',
     },
   ];
 
@@ -101,8 +101,8 @@ export default function Services() {
           <section
             key={service.title}
             className={`relative bg-white text-[#06369c] ${isFirst
-              ? 'pt-44 pb-24 sm:pt-52 lg:pt-60 lg:pb-32'
-              : 'py-24 lg:py-32'
+              ? 'pt-36 pb-10 sm:pt-44 sm:pb-12 lg:pt-52 lg:pb-14'
+              : 'py-10 sm:py-12 lg:py-14'
               }`}
           >
             <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
@@ -154,7 +154,7 @@ export default function Services() {
         );
       })}
       {/* Bottom Separator Line before Footer */}
-      <div className="border-t-2 border-[#06369c] max-w-[2000px] mx-auto px-6 sm:px-10 lg:px-16 my-8" />
+      <div className="border-t-2 border-[#06369c] max-w-[2000px] mx-auto px-6 sm:px-10 lg:px-16 my-4" />
     </main>
   );
 }
