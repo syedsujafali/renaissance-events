@@ -1,14 +1,26 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Play, Pause } from 'lucide-react';
 import GlobalContactSection from '../components/GlobalContactSection';
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const textSectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(textSectionRef, { once: false, margin: '-10% 0px -10% 0px' });
+
+  const togglePlayPause = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play().then(() => setIsPaused(false)).catch(() => {});
+    } else {
+      video.pause();
+      setIsPaused(true);
+    }
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -145,7 +157,12 @@ export default function Home() {
             playsInline
             preload="auto"
             poster="/0911/0911-Cover.jpg"
-            onPlaying={() => setIsVideoPlaying(true)}
+            onPlaying={() => {
+              setIsVideoPlaying(true);
+              setIsPaused(false);
+            }}
+            onPlay={() => setIsPaused(false)}
+            onPause={() => setIsPaused(true)}
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/0911/0911.mp4" type="video/mp4" />
@@ -163,6 +180,29 @@ export default function Home() {
             fetchPriority="high"
           />
         </motion.div>
+
+        {/* Video Play / Pause Toggle Button */}
+        <motion.button
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          onClick={togglePlayPause}
+          className="absolute bottom-10 right-5 sm:bottom-12 sm:right-10 lg:right-16 z-20 group flex items-center gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border border-white/30 hover:border-white bg-black/40 hover:bg-black/60 text-white text-xs uppercase tracking-[0.2em] font-medium backdrop-blur-md shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
+          aria-label={isPaused ? 'Play background video' : 'Pause background video'}
+          title={isPaused ? 'Play video' : 'Pause video'}
+        >
+          {isPaused ? (
+            <>
+              <Play className="w-3.5 h-3.5 fill-white text-white translate-x-0.5 transition-transform duration-300 group-hover:scale-110" />
+              <span className="hidden sm:inline text-[11px] font-semibold tracking-widest">Play</span>
+            </>
+          ) : (
+            <>
+              <Pause className="w-3.5 h-3.5 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
+              <span className="hidden sm:inline text-[11px] font-semibold tracking-widest">Pause</span>
+            </>
+          )}
+        </motion.button>
 
         {/* Scroll Button */}
         <motion.button
