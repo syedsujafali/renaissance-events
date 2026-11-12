@@ -174,12 +174,9 @@ export default function Home() {
         </motion.div>
 
         {/* Video Play / Pause Toggle Button */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+        <button
           onClick={togglePlayPause}
-          className="absolute bottom-14 right-6 sm:bottom-[60px] sm:right-[7.2%] z-20 group w-16 h-16 sm:w-[82px] sm:h-[82px] rounded-full border border-white/35 hover:border-white bg-black/95 hover:bg-black text-white flex items-center justify-center backdrop-blur-md shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
+          className="absolute bottom-14 right-6 sm:bottom-[60px] sm:right-[7.2%] z-20 group w-16 h-16 sm:w-[82px] sm:h-[82px] rounded-full border border-white/35 hover:border-white bg-black/95 hover:bg-black text-white flex items-center justify-center backdrop-blur-md shadow-xl transition-transform duration-300 cursor-pointer hover:scale-105 active:scale-95"
           aria-label={isPaused ? 'Play background video' : 'Pause background video'}
           title={isPaused ? 'Play video' : 'Pause video'}
         >
@@ -188,7 +185,7 @@ export default function Home() {
           ) : (
             <Pause className="w-5 h-5 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
           )}
-        </motion.button>
+        </button>
 
         {/* Scroll Button */}
         <motion.button
