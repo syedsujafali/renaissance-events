@@ -81,11 +81,10 @@ export default function Services() {
         'Orchestrate complex productions with thousands of attendees. Our expertise in logistics and crowd management ensures flawless execution at any scale.',
       features: [
         'Conferences & Conventions (2000+)',
-        'Sporting Events & Competitions',
         'Receptions & After-Parties',
         'Public Celebrations & Ceremonies',
         'Multi-Venue Events',
-        'Global Event Coordination',
+        'Global Event Management',
         'Vendor Management (AV, Ground Transportation) and more',
       ],
       image: '/images/NBA new.jpeg',
@@ -105,28 +104,27 @@ export default function Services() {
               : 'py-10 sm:py-12 lg:py-14'
               }`}
           >
-            <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
+            <div className="max-w-screen-2xl 2xl:max-w-[1600px] 3xl:max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
               <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8 }}
-                className={`reveal-on-scroll grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                  }`}
+                className="reveal-on-scroll grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-stretch"
               >
                 {/* Image Frame */}
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="image-zoom-container relative overflow-hidden rounded-2xl border border-[#06369c]/10 shadow-xl">
+                <div className={`flex ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="image-zoom-container relative w-full h-[320px] sm:h-[420px] lg:h-full lg:min-h-[480px] overflow-hidden rounded-2xl border border-[#06369c]/10 shadow-xl">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full aspect-[16/10] sm:h-[450px] lg:h-[500px] object-cover object-center"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                 </div>
 
                 {/* Content Box */}
-                <div className={`space-y-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`flex flex-col justify-center space-y-6 lg:space-y-7 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#06369c] text-white shadow-md">
                     <service.icon className="w-7 h-7" />
                   </div>

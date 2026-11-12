@@ -61,7 +61,7 @@ export default function Home() {
   const headlineText = "Who We Are";
   const words = headlineText.split(" ");
 
-  const paragraph1Text = "With over 30 years of experience, Renaissance Meetings & Special Events is a full-service event management and marketing firm creating memorable brand experiences. From conferences and special events to fundraising and sponsorships, we combine creativity, strategy, and expertise to deliver unique experiences that connect people, elevate brands, and bring our client's visions to life.";
+  const paragraph1Text = "With over 30 years of experience, Renaissance Meetings & Special Events is a full-service event management and marketing firm creating memorable brand experiences. From conferences and special events to fundraising and sponsorships, we combine creativity, strategy, and expertise to deliver unique experiences that connect people, elevate brands, and bring our clients' visions to life.";
   const paragraph1Words = paragraph1Text.split(" ");
 
   const paragraph2Text = "";
@@ -156,7 +156,7 @@ export default function Home() {
             muted
             playsInline
             preload="auto"
-            poster="/0911/0911-Cover.jpg"
+            poster="/updated-cover.jpg"
             onPlaying={() => {
               setIsVideoPlaying(true);
               setIsPaused(false);
@@ -165,13 +165,13 @@ export default function Home() {
             onPause={() => setIsPaused(true)}
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/0911/0911.mp4" type="video/mp4" />
+            <source src="/images/updated-cleaned.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
           {/* Instant Background Poster (smoothly crossfades out once video is playing) */}
           <img
-            src="/0911/0911-Cover.jpg"
+            src="/updated-cover.jpg"
             alt="Renaissance Events"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 pointer-events-none ${isVideoPlaying ? 'opacity-0' : 'opacity-100'
               }`}
