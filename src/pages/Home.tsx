@@ -165,19 +165,12 @@ export default function Home() {
             onPause={() => setIsPaused(true)}
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/images/updated-cleaned.mp4" type="video/mp4" />
+            <source src="/updated.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
           {/* Instant Background Poster (smoothly crossfades out once video is playing) */}
-          <img
-            src="/updated-cover.jpg"
-            alt="Renaissance Events"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 pointer-events-none ${isVideoPlaying ? 'opacity-0' : 'opacity-100'
-              }`}
-            loading="eager"
-            fetchPriority="high"
-          />
+
         </motion.div>
 
         {/* Video Play / Pause Toggle Button */}
