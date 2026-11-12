@@ -179,20 +179,14 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
           onClick={togglePlayPause}
-          className="absolute bottom-10 right-5 sm:bottom-12 sm:right-10 lg:right-16 z-20 group flex items-center gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border border-white/30 hover:border-white bg-black/40 hover:bg-black/60 text-white text-xs uppercase tracking-[0.2em] font-medium backdrop-blur-md shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
+          className="absolute bottom-14 right-6 sm:bottom-[60px] sm:right-[7.2%] z-20 group w-16 h-16 sm:w-[82px] sm:h-[82px] rounded-full border border-white/35 hover:border-white bg-black/95 hover:bg-black text-white flex items-center justify-center backdrop-blur-md shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
           aria-label={isPaused ? 'Play background video' : 'Pause background video'}
           title={isPaused ? 'Play video' : 'Pause video'}
         >
           {isPaused ? (
-            <>
-              <Play className="w-3.5 h-3.5 fill-white text-white translate-x-0.5 transition-transform duration-300 group-hover:scale-110" />
-              <span className="hidden sm:inline text-[11px] font-semibold tracking-widest">Play</span>
-            </>
+            <Play className="w-5 h-5 fill-white text-white translate-x-0.5 transition-transform duration-300 group-hover:scale-110" />
           ) : (
-            <>
-              <Pause className="w-3.5 h-3.5 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
-              <span className="hidden sm:inline text-[11px] font-semibold tracking-widest">Pause</span>
-            </>
+            <Pause className="w-5 h-5 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
           )}
         </motion.button>
 
